@@ -1,0 +1,22 @@
+Preparar backend (Los comandos se introducen en la terminal CMD)
+- Seleccionar la ruta donde se desea instalar el backend
+- Ingresar "npm init" y llenar los datos que pide el terminal
+- Agregamos las dependencias y paquetes del proyecto:
+	npm install express --save
+	npm install body-parser --save ->transforma peticiones del backend en .json
+	npm install connect-multiparty --save ->paquete para control de archivos
+	npm install mongose --save ->paquete para trabajar con mongodb
+	npm install nodemon --save ->refrescar el servidor
+PROGRAMACION:
+- En package.json se creara las siguientes lineas debajo del name, version o descrption -> 
+,"main": "index.js",
+"scripts":{
+	"test": "echo \"Error: no test specified\" && exit 1",
+	"start": "nodemon index.js"
+},
+- CREAR UN ARCHIVO en la ruta 'backend' el index.js, en donde conectaremos nuestra base de datos
+- CREAR UN ARCHIVO en la ruta 'backend' el app.js, en donde se agregaran las dependencias de las peticiones, como se muestra en el repositorio
+- Por ultimo una vez configurado esto, se puede iniciar el servicio de backend con el comando "npm start" en el CMD (ASEGURARSE ESTAR EN LA RUTA DE BACKEND INICIAL)
+
+
+- Una vez preparado esto, podemos configurar las routes, controllers y models para hacer peticiones HTTP y conectar con el frontend a posterior
