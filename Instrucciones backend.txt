@@ -5,7 +5,7 @@ Preparar backend (Los comandos se introducen en la terminal CMD)
 	npm install express --save
 	npm install body-parser --save ->transforma peticiones del backend en .json
 	npm install connect-multiparty --save ->paquete para control de archivos
-	npm install mongose --save ->paquete para trabajar con mongodb
+	npm install mongoose --save ->paquete para trabajar con mongodb
 	npm install nodemon --save ->refrescar el servidor
 PROGRAMACION:
 - En package.json se creara las siguientes lineas debajo del name, version o descrption -> 
