@@ -1,4 +1,4 @@
-Preparar backend (Los comandos se introducen en la terminal CMD)
+Preparar backend (Los comandos se introducen en la terminal CMD):
 - Seleccionar la ruta donde se desea instalar el backend
 - Ingresar "npm init" y llenar los datos que pide el terminal
 - Agregamos las dependencias y paquetes del proyecto:
