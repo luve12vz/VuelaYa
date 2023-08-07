@@ -8,6 +8,9 @@ var router = express.Router();
 router.get('/vuelos', AerolineaController.getVuelosTotal);
 //ver informacion de vuelos pasando parametros
 router.get('/buscar-vuelos', AerolineaController.getBuscarVuelos);
-
+//seleccion de un vuelo
+router.post('/seleccionar-vuelo', AerolineaController.postSeleccionVuelo);
+//ver el resumen de compra del vuelo seleccionado (incluye descuentos)
+router.get('/ver-resumen', AerolineaController.getResumenCompra);
 
 module.exports = router;

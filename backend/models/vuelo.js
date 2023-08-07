@@ -15,6 +15,7 @@ var VueloSchema = Schema({
   horaSalida: Number,
   pasajerosMaximo: Number,  
   pasajerosReserva: Number,  
+  pasajerosDisponibles: Number
 }, {
   collection: 'vuelos'
 });
