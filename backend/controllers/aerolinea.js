@@ -29,24 +29,15 @@ var controller = {
         try {
             //Buscar RUTAS disponibles
             const rutasEncontradas = await Ruta.find({
-                origen,
-                destino,
+                origen: origen,
+                destino: destino,
                 fechaSalida: new Date(fechaSalida),
                 fechaRetorno: fechaRetorno ? new Date(fechaRetorno) : { $exists: false }
-            });
-            const vuelosDisponibles = [];
-            // Obtiene los id de las rutas encontradas
-            const idsRutasEncontradas = rutasEncontradas.map(ruta => ruta._id);
-            for (const ruta of rutasEncontradas) {
-                // Busca los vuelos asociados a las rutas encontradas
-                const vuelosEncontrados = await Vuelo.find({ ruta: { $in: idsRutasEncontradas } }).populate('ruta');
-                for (const vuelo of vuelosEncontrados) {
-                    if (vuelo.pasajerosDisponibles >= totalPasajeros) {
-                        vuelosDisponibles.push(vuelo);
-                    }
-                }
+            }).exec();
+            if (!rutasEncontradas || rutasEncontradas.length === 0){
+                return res.status(404).send({ message: 'No existen vuelos con esta ruta'});
             }
-            return res.status(201).send({vuelosDisponibles} );
+            return res.status(200).send({rutasEncontradas} );
 
         } catch (err) {
             return res.status(500).send({ message: 'Error al recuperar los datos' });
