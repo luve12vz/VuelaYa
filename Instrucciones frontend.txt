@@ -1,0 +1,18 @@
+Para generar un proyecto de angular para el frontend, se de asegurar la instalacion de node.js
+- Ahora para crear un proyecto de angular, nos dirigimos a la ruta de nuestro proyecto en general y en el CMD de nuestro editor de codigo, escribimos "ng new frontend" donde 'frontend' es el nombre de la carpeta donde se instalara todas las dependencias
+
+- Nos preguntara que si queremos agregar el angular routing, a lo cual reponderemos que si ('y' como respuesta).
+
+- Ademas nos pide el style, el cual seleccionaremos CSS
+
+- Una vez se halla instalado el proyecto, podemos iniciarlo con el comando "npm start"
+
+- Con esto podemos empezar a agregar componentes y otros archivos necesarios para el proyecto, uno de ellos seria nuestros components, en donde se configura tanto la interfaz de la pagina que el usuario vera (html, css), como la logica realizada en el typescript (ts), asi, para crear un componente se debera usar el comando "ng g component 'nombre del componente'", para nuestro caso como queremos ubicarlo en una carpeta el comando sera "ng g component components/'nombre del componente'".
+
+- Cabe aclarar que la pagina a mostrar cuando entremos al dominio sera el de app.component.html, por lo cual vamos a trabajar ahi nuestra pagina inicial
+
+- Tambien, para ingresar paths de los diferentes componentes es en el archivo "app-routing.module.ts"
+
+- IMPORTANTE: para usar las funciones HTTP y Forms para realizar peticiones, se debe incluir estas dependencias en el app.module.ts
+
+- Con esto podemos continuar las diferentes configuraciones en el proyecto como los componentes, modelos y services.
