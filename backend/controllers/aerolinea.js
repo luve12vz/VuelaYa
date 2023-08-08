@@ -46,7 +46,7 @@ var controller = {
                     }
                 }
             }
-            return res.status(201).send({ vuelosDisponibles });
+            return res.status(201).send({vuelosDisponibles} );
 
         } catch (err) {
             return res.status(500).send({ message: 'Error al recuperar los datos' });
@@ -75,28 +75,34 @@ var controller = {
 
     getResumenCompra: async function (req, res) {
         try {
-            const vueloId = req.params.vueloId;
+            const vueloId = req.params.id;
             const vueloSeleccionado = await Vuelo.findById(vueloId);
-
+    
             if (!vueloSeleccionado) {
                 return res.status(404).send({ message: 'Vuelo no encontrado' });
             }
-
-            const { adultos, ninos, jovenes, terceraEdad } = req.body;
-
+    
+            const adultos = req.body.adultos || 0;
+            const ninos = req.body.ninos || 0;
+            const jovenes = req.body.jovenes || 0;
+            const terceraEdad = req.body.terceraEdad || 0;
+    
             // Calcular subtotal
             const subtotal = vueloSeleccionado.precio * (adultos + jovenes + terceraEdad);
 
+    
             // Calcular descuentos para niños y tercera edad
             const descuentoNinos = vueloSeleccionado.precio * ninos; // Niños no pagan
             const descuentoTerceraEdad = (vueloSeleccionado.precio * terceraEdad) / 2;
-
-            // Calcular impuestos (puedes ajustar esta parte según tus necesidades)
-            const impuestos = subtotal * 0.1; // Ejemplo 10% de impuestos
-
-            // Calcular precio total
-            const precioTotal = (subtotal - descuentoNinos - descuentoTerceraEdad) + impuestos;
             
+            
+            const precioPreventivo = subtotal - descuentoNinos - descuentoTerceraEdad;
+            // Calcular impuestos (puedes ajustar esta parte según tus necesidades)
+            const impuestos = precioPreventivo * 0.1; // Ejemplo 10% de impuestos
+    
+            // Calcular precio total
+            const precioTotal = precioPreventivo + impuestos;
+    
             return res.status(200).send({
                 vuelo: vueloSeleccionado,
                 subtotal,
@@ -104,11 +110,12 @@ var controller = {
                 descuentoTerceraEdad,
                 impuestos,
                 precioTotal
-              });
+            });
         } catch (error) {
             return res.status(500).json({ message: 'Error al obtener el resumen de compra' });
         }
     }
+    
 
 }
 module.exports = controller;
