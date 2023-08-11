@@ -1,0 +1,13 @@
+<p>listado works!</p>
+<div *ngIf="vuelos.length > 0">
+    <h2>Listado de Vuelos Disponibles</h2>
+    <ul>
+        <li *ngFor="let vuelo of vuelos">
+            <button (click)="seleccionarVuelo(vuelo)">Seleccionar</button>
+            {{ vuelo.horaLlegada }} - {{vuelo.horaSalida}}
+        </li>
+    </ul>
+</div>
+<div *ngIf="vuelos.length === 0">
+    <p>No se encontraron vuelos disponibles.</p>
+</div>

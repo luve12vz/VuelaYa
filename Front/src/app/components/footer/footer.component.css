@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "WebSymbolsRegulars";
+  src: url('fonts/WebSymbols-Regular.otf');
+}
+
+.icon {
+  font-family: WebSymbolsRegulars;
+}
+
+@font-face {
+  font-family: "Asap";
+  src: url('fonts/Asap-MediumItalic.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hug";
+  /*src: url('fonts/First.ttf');*/
+  src: url('fonts/Hugshack.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#footer {
+font-family: "Asap";
+  background-color: #E18435;
+  padding: 10px 10px;
+  font-size: 15px;
+}
+
+#footer .wrap>div {
+  float: left;
+  width: 23%;
+  margin: 10px;
+  text-align: center;
+  background-color: #E18435;
+}
+
+#footer span {
+  color: #ffffff;
+}
+
+#footer .logo {
+  float: left;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+#footer .logo img {
+  filter: invert(10);
+  float: none;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 300ms;
+}
+
+#footer h5 {
+  font-family: "Hug";
+  display: block;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 25px;
+  color: white;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+#footer iframe {
+  width: 330px;
+  height: 250px;
+  margin-top: 50px;
+  border-radius: 5px;
+  border: 5px solid white;
+  box-shadow: 0px 0px 5px gray;
+}
+
+#footer ul {
+  text-align: left;
+  margin: 10px;
+  font-size: 25px;
+}
+
+#footer ul li {
+  padding: 3px;
+}
+
+#footer ul li a {
+  display: block;
+  height: 60px;
+  transition: all 300ms;
+}
+
+#footer ul li a:hover {
+  padding-left: 0px;
+  color: white;
+  width: 100%;
+}
+
+#footer #info a {
+  font-size: 25px;
+}
+
+#footer #info a:hover {
+  color: white;
+}
+
+#footer #info span {
+  font-size: 18px;
+  margin-left: 15px;
+}
+
+.fab {
+  margin-left: 20px;
+  font-size: 60px;
+  color: black;
+}
+
+#footer #location span {
+  font-size: 18px;
+  margin: 5px;
+
+}

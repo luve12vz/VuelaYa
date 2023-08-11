@@ -1,1 +1,41 @@
-<p>busqueda works!</p>
+<body>
+    <form>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+            <label class="form-check-label" for="flexRadioDisabled">
+                Ida y Vuelta
+            </label>
+            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked
+                disabled>
+            <label class="form-check-label" for="flexRadioCheckedDisabled">
+                Solo Ida
+            </label>
+        </div>
+
+        <h3>¿A dónde viajas?</h3>
+        <h3>¿Cuándo viajas?</h3>
+        <div class="control">
+            <label for="exampleDataList" class="form-label"></label>
+            <input name="origen" #origen="ngModel" [(ngModel)]="ruta.origen" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Desde">
+            <datalist id="datalistOptions">
+                <option value="Quito">
+                <option value="Guayaquil">
+                <option value="Cuenca">
+            </datalist>
+            <label for="exampleDataList" class="form-label"></label>
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Hacia">
+            <datalist id="datalistOptions">
+                <option value="Quito">
+                <option value="Guayaquil">
+                <option value="Cuenca">
+            </datalist>
+            
+            <label for="datepicker">Selecciona una fecha: </label>
+            <input type="text" id="datepicker">
+            <button type="submit" class="btn btn-primary">Buscar vuelo</button>
+        </div>
+
+
+
+    </form>
+</body>
