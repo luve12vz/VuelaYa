@@ -10,13 +10,23 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { BeneficiosComponent } from './components/beneficios/beneficios.component';
+import { RedComponent } from './components/red/red.component';
+import { ListadoComponent } from './components/listado/listado.component';
+import { ResumenDeVueloComponent } from './components/resumen-de-vuelo/resumen-de-vuelo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     FooterComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    NosotrosComponent,
+    BeneficiosComponent,
+    RedComponent,
+    ListadoComponent,
+    ResumenDeVueloComponent
   ],
   imports: [
     BrowserModule,
