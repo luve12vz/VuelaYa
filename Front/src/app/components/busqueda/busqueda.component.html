@@ -16,7 +16,7 @@
         <h3>¿Cuándo viajas?</h3>
         <div class="control">
             <label for="exampleDataList" class="form-label"></label>
-            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Desde">
+            <input name="origen" #origen="ngModel" [(ngModel)]="ruta.origen" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Desde">
             <datalist id="datalistOptions">
                 <option value="Quito">
                 <option value="Guayaquil">

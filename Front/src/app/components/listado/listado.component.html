@@ -4,8 +4,7 @@
     <ul>
         <li *ngFor="let vuelo of vuelos">
             <button (click)="seleccionarVuelo(vuelo)">Seleccionar</button>
-            {{ vuelo.origen }} - {{ vuelo.destino }} | Salida: {{ vuelo.fechaSalida }} | Retorno: {{ vuelo.fechaRetorno
-            }}
+            {{ vuelo.horaLlegada }} - {{vuelo.horaSalida}}
         </li>
     </ul>
 </div>
