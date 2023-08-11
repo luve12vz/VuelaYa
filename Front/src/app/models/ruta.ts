@@ -3,7 +3,7 @@ export class Ruta{
         public _id:string,
         public origen:string,
         public destino:string,
-        public fechaSalida:string,
-        public fechaRetorno:string
+        public fechaSalida:any,
+        public fechaRetorno:any
     ){}
 }
