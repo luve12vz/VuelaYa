@@ -21,11 +21,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-/*font-family: "Asap";
-font-family: "Hug";*/
-
-
 form {
     margin: 20px;
     padding: 20px;
@@ -117,4 +112,14 @@ label {
 
 .btn-primary:hover {
     background-color: #0056b3;
+}
+.ui-datepicker-buttonpane {
+    display: flex;
+    justify-content: center;
+}
+
+/* Ajusta la posición del mini calendario */
+.ui-datepicker-inline {
+    display: inline-block;
+    margin-left: 10px; /* Ajusta el margen según tu diseño */
 }

@@ -22,7 +22,7 @@ export class InicioComponent implements OnInit {
     this.vuelo = [];
   }
   ngOnInit(): void {
-    this.getVueloRuta("Quito", "Cuenca", '2023-08-15', '2023-09-13');
+   // this.getVueloRuta("Quito", "Cuenca", '2023-08-15', '2023-09-13');
   }
   getVuelos() {
     this._vueloservice.getVuelos().subscribe(
@@ -34,7 +34,7 @@ export class InicioComponent implements OnInit {
       }
     )
   }
-  getVueloRuta(origen:string, destino:string, fechaS:any, fechaR:any){
+  /*getVueloRuta(origen:string, destino:string, fechaS:any, fechaR:any){
     this._vueloservice.getVueloBusqueda(origen, destino, fechaS, fechaR).subscribe(
       response => {
         if (response.rutasEncontradas){
@@ -43,5 +43,5 @@ export class InicioComponent implements OnInit {
         }
       }
     )
-  }
+  }*/
 }

@@ -1,5 +1,5 @@
 <body>
-    <form>
+    <form  >
         <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
             <label class="form-check-label" for="flexRadioDisabled">
@@ -14,28 +14,43 @@
 
         <h3>¿A dónde viajas?</h3>
         <h3>¿Cuándo viajas?</h3>
+        <h3>¿Cuántos viajan?</h3>
         <div class="control">
+            <!--¿A donde viajas?-->
             <label for="exampleDataList" class="form-label"></label>
-            <input name="origen" #origen="ngModel" [(ngModel)]="ruta.origen" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Desde">
+            <input name="origen" #origen="ngModel" [(ngModel)]="ruta.origen" class="form-control" list="datalistOptions"
+                id="origen" placeholder="Desde">
             <datalist id="datalistOptions">
                 <option value="Quito">
                 <option value="Guayaquil">
                 <option value="Cuenca">
             </datalist>
             <label for="exampleDataList" class="form-label"></label>
-            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Hacia">
+            <input name="destino" #destino="ngModel" [(ngModel)]="ruta.destino" class="form-control"
+                list="datalistOptions" id="destino" placeholder="Hacia">
             <datalist id="datalistOptions">
                 <option value="Quito">
                 <option value="Guayaquil">
                 <option value="Cuenca">
             </datalist>
+            <!--¿Cuando viajas?-->
+            <label for="datepicker"></label>
+            <input name="fechaSalida" #fechaSalida="ngModel" [(ngModel)]="ruta.fechaSalida" type="text" id="datepicker"
+                placeholder="Fecha de Salida">
+            <!--¿Cuántos viajan?-->
             
-            <label for="datepicker">Selecciona una fecha: </label>
-            <input type="text" id="datepicker">
-            <button type="submit" class="btn btn-primary">Buscar vuelo</button>
+            <div class="input-group">
+                <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
+                <!--
+                    deberia crear un vuelo para pasajerosReserva ¿?
+<input name="pasajerosReserva" #pasajerosReserva="ngModel" [(ngModel)]="vuelo.pasajerosReserva" type="number" class="form-control" id="quantityInput" value="1" min="1" max="10">
+                -->
+                <input name="pasajerosReserva"  type="number" class="form-control" id="quantityInput" value="1" min="1" max="10">
+                <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
+            </div>
+            <button type="submit" value="Guardar"  class="btn btn-primary">Buscar vuelo</button>
+
         </div>
-
-
-
     </form>
 </body>
+    
