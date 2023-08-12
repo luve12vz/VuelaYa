@@ -15,6 +15,7 @@ import { BeneficiosComponent } from './components/beneficios/beneficios.componen
 import { RedComponent } from './components/red/red.component';
 import { ListadoComponent } from './components/listado/listado.component';
 import { ResumenDeVueloComponent } from './components/resumen-de-vuelo/resumen-de-vuelo.component';
+import { NoticiasIiComponent } from './components/noticias-ii/noticias-ii.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ResumenDeVueloComponent } from './components/resumen-de-vuelo/resumen-d
     BeneficiosComponent,
     RedComponent,
     ListadoComponent,
-    ResumenDeVueloComponent
+    ResumenDeVueloComponent,
+    NoticiasIiComponent
   ],
   imports: [
     BrowserModule,

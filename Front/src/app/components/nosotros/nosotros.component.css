@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "WebSymbolsRegulars";
+    src: ('../assets/fonts/WebSymbols-Regular.otf');
+}
+
+.icon {
+    font-family: WebSymbolsRegulars;
+}
+
+@font-face {
+    font-family: "Asap";
+    src: ('../assets/fonts/Asap-MediumItalic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Hug";
+    src: ('../assets/fonts/Hugshack.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*@font-face {
+    font-family: "gro";
+    src: ('../assets/fonts/ground.otf');
+    font-weight: normal;
+}*/
+
+body {
+    border: solid orange;
+    border-radius: 15px;
+    margin: 40px;
+    padding: 10px 10px 10px 10px;
+    font-size: 15px;
+    background-color: #f7a72fab;
+}
+
+
+h2 {
+    margin: 10px;
+    font-family: "Hug";
+    font-size: 25px;
+    text-shadow: 10px 10px 5px #fcfcfcfd;
+}
+
+p {
+    margin: 20px;
+    font-family: "Asap";
+    font-size: 20px;
+    text-align: justify;
+    
+}

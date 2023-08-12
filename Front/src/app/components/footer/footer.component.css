@@ -1,6 +1,7 @@
 @font-face {
   font-family: "WebSymbolsRegulars";
-  src: url('fonts/WebSymbols-Regular.otf');
+  src: ('../assets/fonts/WebSymbols-Regular.otf');
+
 }
 
 .icon {
@@ -9,20 +10,21 @@
 
 @font-face {
   font-family: "Asap";
-  src: url('fonts/Asap-MediumItalic.ttf');
+  src: ('../assets/fonts/Asap-MediumItalic.ttf');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Hug";
   /*src: url('fonts/First.ttf');*/
-  src: url('fonts/Hugshack.otf');
+  src: ('../assets/fonts/Hugshack.otf');
   font-weight: normal;
   font-style: normal;
 }
 
 #footer {
-font-family: "Asap";
+  font-family: "Asap";
   background-color: #E18435;
   padding: 10px 10px;
   font-size: 15px;
@@ -41,18 +43,20 @@ font-family: "Asap";
 }
 
 #footer .logo {
-  float: left;
+  float: center;
   color: white;
-  padding: 10px;
+  padding: 5px;
   text-decoration: none;
   font-size: 17px;
   font-weight: bold;
-  margin: 20px;
+  margin: 5px;
 }
 
 #footer .logo img {
-  filter: invert(10);
+ /* filter: invert(10);
+ box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.2);*/
   float: none;
+   
 }
 
 #footer a {
