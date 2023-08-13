@@ -6,7 +6,7 @@ var VueloSchema = Schema({
   numeroVuelo: String,
   duration: Number,
   ruta: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Ruta',
     required: true
   },

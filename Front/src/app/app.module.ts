@@ -16,6 +16,9 @@ import { RedComponent } from './components/red/red.component';
 import { ListadoComponent } from './components/listado/listado.component';
 import { ResumenDeVueloComponent } from './components/resumen-de-vuelo/resumen-de-vuelo.component';
 import { NoticiasIiComponent } from './components/noticias-ii/noticias-ii.component';
+import { JsonPipe } from '@angular/common';
+import { NgbAlertModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { VueloService } from './services/vuelo.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +37,13 @@ import { NoticiasIiComponent } from './components/noticias-ii/noticias-ii.compon
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbDatepickerModule, 
+    NgbAlertModule, 
+    FormsModule, 
+    JsonPipe
   ],
-  providers: [],
+  providers: [VueloService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { response } from 'express';
 import { Ruta } from 'src/app/models/ruta';
+import { RutaS } from 'src/app/models/rutaS';
 import { Vuelo } from 'src/app/models/vuelo';
+import { Global } from 'src/app/services/global';
 import { VueloService } from 'src/app/services/vuelo.service'; // Asegúrate de importar correctamente tu servicio
 
 @Component({
@@ -11,37 +15,38 @@ import { VueloService } from 'src/app/services/vuelo.service'; // Asegúrate de 
 })
 export class ListadoComponent implements OnInit {
   vuelos: Vuelo[]; // Aquí almacenaremos los datos de los vuelos
-  ruta: Ruta;
-  constructor(private vueloService: VueloService)
-  { 
-    this.ruta = new Ruta("","","","","");
+  rutas: RutaS;
+  public url:string;
+
+  constructor(
+    private vueloService: VueloService,
+    private _route: ActivatedRoute,
+    private router: Router
+    )
+  {
+    this.url=Global.url;
+    this.rutas = new RutaS("","","","");
     this.vuelos = [];
   }
 
   ngOnInit(): void {
-    this.obtenerVuelos();
+    this._route.params.subscribe(
+      params=>{
+        let id = params['id'];
+        console.log(id);
+        this.getVuelosById(id);
+      }
+    )
   }
 
-  obtenerVuelos() {
-    this.ruta.origen = 'Quito'; // Define los valores adecuados para origen, destino, fechaSalida y fechaRetorno
-    this.ruta.destino = 'Cuenca';
-    this.ruta.fechaSalida = '2023-08-15';
-    this.ruta.fechaRetorno = '2023-09-13';
-
-
-    this.vueloService.getVueloBusqueda(this.ruta)
-      .subscribe(
-        (data) => {
-          this.vuelos = data; // Asignamos los datos recibidos al arreglo de vuelos
-        },
-        (error) => {
-          console.error('Error al obtener los vuelos:', error);
+  getVuelosById(id:String){
+    this.vueloService.getVueloByRuta(id).subscribe(
+      response=>{
+        if(response.listaVuelos){
+          this.vuelos = response.listaVuelos
+          console.log(this.vuelos)
         }
-      );
-  }
-
-  seleccionarVuelo(vuelo: any) {
-    // Aquí puedes realizar acciones al seleccionar un vuelo, por ejemplo, redirigir a otra página o mostrar detalles.
-    console.log('Vuelo seleccionado:', vuelo);
+      }
+    )
   }
 }

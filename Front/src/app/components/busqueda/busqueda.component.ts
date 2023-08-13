@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { NgModel } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { Global } from '../../services/global';
-import { OnInit, ViewChild } from '@angular/core';
-import { Ruta } from 'src/app/models/ruta';
-import{Vuelo} from 'src/app/models/vuelo';
+import { OnInit } from '@angular/core';
 import { VueloService } from 'src/app/services/vuelo.service';
-import * as $ from 'jquery';
-import 'jquery-ui-dist/jquery-ui';
+import { Aeropuerto } from 'src/app/models/aeropuerto';
+import { RutaS } from 'src/app/models/rutaS';
+import { ActivatedRoute, Router } from '@angular/router';
+
+declare let $: any;
+
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
@@ -15,26 +14,34 @@ import 'jquery-ui-dist/jquery-ui';
   providers: [VueloService]
 })
 export class BusquedaComponent implements OnInit {
-  public ruta: Ruta;
+  public rutaS: RutaS;
+  public aeropuertos: Aeropuerto[];
+  public isDisabled: boolean = true;
+  public isDisabledOption: boolean = true;
+  public valorUbicacion: any = undefined;
  /* public vuelo:Vuelo;
   constructor(
     private 
   )*/
   constructor(
-    private _vueloservice: VueloService
+    private _vueloservice: VueloService,
+    private _router: Router,
+    private _route: ActivatedRoute
   ) {
-    this.ruta = new Ruta("", "", "", "", "");
+    this.rutaS = new RutaS("", "", "", "");
+    this.aeropuertos = [];
   }
 
   ngOnInit(): void {
-    this.setupDatepicker();
+    //this.setupDatepicker();
     this.setupIncrementDecrement();
     this.validateOriginAndDestination();
+    this.getAeropuertos();
   }
   ngAfterViewInit(): void {
     this.validateOriginAndDestination();
   }
-  setupDatepicker() {
+/*   setupDatepicker() {
     const today = new Date();
     $("#datepicker").datepicker({
       dateFormat: "dd-mm-yy",
@@ -43,7 +50,7 @@ export class BusquedaComponent implements OnInit {
       yearRange: "2023:2024",
       minDate: today,
     });
-  }
+  } */
   setupIncrementDecrement(): void {
     const decrementBtn = document.getElementById("decrementBtn") as HTMLButtonElement;
     const incrementBtn = document.getElementById("incrementBtn") as HTMLButtonElement;
@@ -90,5 +97,42 @@ checkOriginAndDestination(originInput: HTMLInputElement, destinationInput: HTMLI
   } else {
     // Puedes limpiar mensajes de error, estilos, etc.
   }
+}
+
+getAeropuertos(){
+  this._vueloservice.getAeropuertos().subscribe(
+    response=> {
+      if (response.aeropuertos) {
+        this.aeropuertos = response.aeropuertos
+        console.log(this.aeropuertos)
+      }
+    }
+  )
+}
+
+checkDestino(vueloDestinoValue){
+  this.valorUbicacion = vueloDestinoValue;
+  console.log(vueloDestinoValue);
+  this.isDisabled = false;
+}
+
+getVueloRuta(){
+  this.rutaS.fechaSalida = this.rutaS.fechaSalida.year+"-"+('0'+this.rutaS.fechaSalida.month).slice(-2)
+  +"-"+('0'+this.rutaS.fechaSalida.day).slice(-2)
+  console.log(this.rutaS.fechaSalida);
+  this._vueloservice.getVueloBusquedaS(this.rutaS).subscribe(
+    response => {
+      if (response.rutasEncontradas){
+        this.rutaS = response.rutasEncontradas;
+        console.log(this.rutaS);
+      }
+    },
+    error => {
+      console.log(error);
+    },
+    () => { // Se envia a la pagina correspondiente
+      this._router.navigate(['/lista-vuelos', this.rutaS[0]._id])
+    }
+  )
 }
 }  

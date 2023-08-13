@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Vuelo } from 'src/app/models/vuelo';
 import { VueloService } from 'src/app/services/vuelo.service';
 import { Global } from 'src/app/services/global';
+import { Aeropuerto } from 'src/app/models/aeropuerto';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -12,6 +13,7 @@ import { Global } from 'src/app/services/global';
 })
 export class InicioComponent implements OnInit {
   public vuelo: Vuelo[];
+  public aeropuertos: Aeropuerto[];
   public url: string;
   constructor(
     private _vueloservice: VueloService,
@@ -20,9 +22,12 @@ export class InicioComponent implements OnInit {
   ) {
     this.url = Global.url;
     this.vuelo = [];
+    this.aeropuertos = [];
   }
   ngOnInit(): void {
    // this.getVueloRuta("Quito", "Cuenca", '2023-08-15', '2023-09-13');
+   /* this.getVuelos();
+   this.getAeropuertos(); */
   }
   getVuelos() {
     this._vueloservice.getVuelos().subscribe(
@@ -44,4 +49,14 @@ export class InicioComponent implements OnInit {
       }
     )
   }*/
+  getAeropuertos(){
+    this._vueloservice.getAeropuertos().subscribe(
+      response=> {
+        if (response.aeropuertos) {
+          this.aeropuertos = response.aeropuertos
+          console.log(this.aeropuertos)
+        }
+      }
+    )
+  }
 }

@@ -1,6 +1,8 @@
 'use strict'
 var Vuelo = require("../models/vuelo");
 var Ruta = require("../models/ruta");
+var aeropuerto = require("../models/aeropuerto");
+const { default: mongoose } = require("mongoose");
 
 var controller = {
     getVuelosTotal: async function (req, res) {
@@ -37,11 +39,45 @@ var controller = {
             if (!rutasEncontradas || rutasEncontradas.length === 0){
                 return res.status(404).send({ message: 'No existen vuelos con esta ruta'});
             }
-            return res.status(200).send({rutasEncontradas} );
+            return res.status(200).send( {rutasEncontradas} );
 
         } catch (err) {
             return res.status(500).send({ message: 'Error al recuperar los datos' });
         }
+    },
+    getAeropuertos: async function (req, res){
+        try {
+            const aeropuertos = await aeropuerto.find().sort('nombre');
+            if (!aeropuertos || !aeropuertos.length === 0) {
+                return res.status(404).send({ message: 'No existen aeropuertos' });
+            }
+            return res.status(200).send( {aeropuertos} );
+        } catch (err) {
+            return res.status(500).send({ message: "Error al recuperar los datos de aeropuertos"})
+        }
+    },
+    getVueloByRutaId: async function(req, res){
+        var idRuta;
+
+        try{
+            idRuta = new mongoose.Types.ObjectId(req.params.idRuta);
+            console.log(idRuta);
+        }catch (err){
+            console.log(err);
+            res.status(500).send("El ID de ruta no es valido");
+            return;
+        }
+        try{
+            const idRuta = new mongoose.Types.ObjectId(req.params.idRuta);
+            const listaVuelos = await Vuelo.find({ ruta: idRuta }).exec();
+          if (!listaVuelos || listaVuelos.length === 0) {
+            return res.status(404).send({ listaVuelos });
+          }
+          return res.status(200).send({ listaVuelos });
+        } catch (err) {
+          console.log(err);
+          return res.status(500).send({ message: 'Error al recuperar los datos' });
+        }    
     },
     postSeleccionVuelo: async function (req, res) {
         try {
