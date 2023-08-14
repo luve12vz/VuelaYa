@@ -5,7 +5,7 @@
         <h3 >Salida de {{this.rutas.origen}} a {{this.rutas.destino}}</h3>
         <ul>
             <li *ngFor="let vuelo of vuelos" class="vuelo-item">
-                <button class="boton-rosado">Seleccionar</button>
+                <button class="boton-rosado" [routerLink]="['/resumen', vuelo._id]">Seleccionar</button>
                 <br>
                 <span class="hora-salida">Hora de salida {{ vuelo.horaSalida }}:00</span> ------------ 
                 <span class="hora-llegada">Hora de llegada {{vuelo.horaLlegada}}:00</span>

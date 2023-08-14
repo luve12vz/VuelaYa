@@ -16,5 +16,8 @@ router.get('/ver-resumen/:id', AerolineaController.getResumenCompra);
 router.get('/aeropuertos', AerolineaController.getAeropuertos);
 //obtener vuelos por medio del id de rutas
 router.get('/lista-vuelos/:idRuta', AerolineaController.getVueloByRutaId);
-
+//obtener ruta por id
+router.get('/ruta/:id', AerolineaController.getRutaById);
+//obtener vuelo por id
+router.get('/vuelo/:id', AerolineaController.getVueloById);
 module.exports = router;

@@ -40,4 +40,14 @@ export class VueloService{
         let headers=new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'lista-vuelos/'+id,{headers:headers});
     }
+    //Obtener ruta por su id
+    getRutaId(id:String):Observable<any>{
+        let headers=new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'ruta/'+id,{headers:headers});
+    }
+    //Obtener ruta por su id
+    getVueloId(id:String):Observable<any>{
+        let headers=new HttpHeaders().set('Content-Type','application/json');
+        return this._http.get(this.url+'vuelo/'+id,{headers:headers});
+    }
 } 

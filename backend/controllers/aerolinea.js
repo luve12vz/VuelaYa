@@ -79,6 +79,38 @@ var controller = {
           return res.status(500).send({ message: 'Error al recuperar los datos' });
         }    
     },
+    getRutaById: async function(req, res){
+        const rutaId = req.params.id;
+        if (!rutaId) {
+            return res.status(404).send({ message: 'La ruta no existe' });
+          }
+        
+          try {
+            const ruta = await Ruta.findById(rutaId);
+            if (!ruta) {
+              return res.status(404).send({ message: 'La ruta no existe' });
+            }
+            return res.status(200).send({ ruta });
+          } catch (err) {
+            return res.status(500).send({ message: 'Error al recuperar los datos' });
+        }
+    },
+    getVueloById: async function(req, res){
+        const vueloId = req.params.id;
+        if (!vueloId) {
+            return res.status(404).send({ message: 'El vuelo no existe' });
+          }
+        
+          try {
+            const vuelo = await Vuelo.findById(vueloId);
+            if (!vuelo) {
+              return res.status(404).send({ message: 'La ruta no existe' });
+            }
+            return res.status(200).send({ vuelo });
+          } catch (err) {
+            return res.status(500).send({ message: 'Error al recuperar los datos' });
+        }
+    },
     postSeleccionVuelo: async function (req, res) {
         try {
             const vueloId = req.params.id;

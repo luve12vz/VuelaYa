@@ -3,15 +3,14 @@ import { OnInit } from '@angular/core';
 import { VueloService } from 'src/app/services/vuelo.service';
 import { Aeropuerto } from 'src/app/models/aeropuerto';
 import { RutaS } from 'src/app/models/rutaS';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 declare let $: any;
 
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
-  styleUrls: ['./busqueda.component.css'],
-  providers: [VueloService]
+  styleUrls: ['./busqueda.component.css']
 })
 export class BusquedaComponent implements OnInit {
   public rutaS: RutaS;
@@ -28,7 +27,6 @@ export class BusquedaComponent implements OnInit {
   constructor(
     private _vueloservice: VueloService,
     private _router: Router,
-    private _route: ActivatedRoute,
     private calendar: NgbCalendar
   ) {
     this.rutaS = new RutaS("", "", "", "");
