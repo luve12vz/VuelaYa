@@ -43,8 +43,15 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
             <label for="datepicker"></label>
             <div class="col-2">
                 <div class="input-group">
-                    <input class="form-control" placeholder="yyyy-mm-dd" name="fechaSalida"
-                        [(ngModel)]="rutaS.fechaSalida" ngbDatepicker #d="ngbDatepicker" />
+                    <input class="form-control" 
+                    placeholder="yyyy-mm-dd" 
+                    name="fechaSalida"
+                    [(ngModel)]="rutaS.fechaSalida" 
+                    ngbDatepicker 
+                    #d="ngbDatepicker"
+                    [minDate]="today"
+                    [maxDate]="maxDate"
+                         />
                     <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
                         type="button"></button>
                 </div>
