@@ -15,56 +15,55 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
             </label>
         </div>
 
-        <h3>¿A dónde viajas?</h3>
-        <h3>¿Cuándo viajas?</h3>
+        <h1>¿A dónde viajas?</h1>
+        <h2>¿Cuándo viajas?</h2>
         <h3>¿Cuántos viajan?</h3>
         <div class="control">
             <!--¿A donde viajas?-->
             <div class="form-group">
                 <label for="origen">Desde:</label>
-                <select class="form-select" aria-label="Default select example" name="origen" [(ngModel)]="rutaS.origen" (ngModelChange)="checkDestino($event)">
-                  <option *ngFor="let aeropuerto of aeropuertos" [ngValue]="aeropuerto.ubicacion">{{aeropuerto.ubicacion}}</option>
+                <select class="form-select" aria-label="Default select example" name="origen" [(ngModel)]="rutaS.origen"
+                    (ngModelChange)="checkDestino($event)">
+                    <option *ngFor="let aeropuerto of aeropuertos" [ngValue]="aeropuerto.ubicacion">
+                        {{aeropuerto.ubicacion}}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="destino">Hasta:</label>
-                <select class="form-select" aria-label="Default select example" name="destino" [(ngModel)]="rutaS.destino" [disabled] = "isDisabled">
-                  <option *ngFor="let aeropuerto of aeropuertos" [ngValue]="aeropuerto.ubicacion">
-                    <div *ngIf="valorUbicacion != aeropuerto.ubicacion">
-                        {{aeropuerto.ubicacion}}
-                    </div>
-                  </option>
+                <select class="form-select" aria-label="Default select example" name="destino"
+                    [(ngModel)]="rutaS.destino" [disabled]="isDisabled">
+                    <option *ngFor="let aeropuerto of aeropuertos" [ngValue]="aeropuerto.ubicacion">
+                        <div *ngIf="valorUbicacion != aeropuerto.ubicacion">
+                            {{aeropuerto.ubicacion}}
+                        </div>
+                    </option>
                 </select>
             </div>
             <!--¿Cuando viajas?-->
             <label for="datepicker"></label>
             <div class="col-2">
                 <div class="input-group">
-                    <input
-                        class="form-control"
-                        placeholder="yyyy-mm-dd"
-                        name="fechaSalida"
-                        [(ngModel)]="rutaS.fechaSalida"
-                        ngbDatepicker
-                        #d="ngbDatepicker"
-                    />
-                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="fechaSalida"
+                        [(ngModel)]="rutaS.fechaSalida" ngbDatepicker #d="ngbDatepicker" />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                        type="button"></button>
                 </div>
             </div>
             <!--¿Cuántos viajan?-->
-            
+
             <div class="input-group">
-            <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
-                
-                  <!--   deberia crear un vuelo para pasajerosReserva ¿?
+                <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
+
+                <!--   deberia crear un vuelo para pasajerosReserva ¿?
 <input name="pasajerosReserva" #pasajerosReserva="ngModel" [(ngModel)]="vuelo.pasajerosReserva" type="number" class="form-control" id="quantityInput" value="1" min="1" max="10"> -->
-                
-                <input name="pasajerosReserva"  type="number" class="form-control" id="quantityInput" value="1" min="1" max="10">
+
+                <input name="pasajerosReserva" type="number" class="form-control" id="quantityInput" value="1" min="1"
+                    max="10">
                 <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
             </div>
-            <button type="submit" value="Guardar"  class="btn btn-primary" [disabled]="!vueloForm.form.valid">Buscar vuelo</button>
+            <button type="submit" value="Guardar" class="btn btn-primary" [disabled]="!vueloForm.form.valid">Buscar
+                vuelo</button>
 
         </div>
     </form>
 </body>
-    
