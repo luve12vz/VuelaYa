@@ -41,28 +41,20 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
             </div>
             <!--¿Cuando viajas?-->
             <label for="datepicker"></label>
-            <div class="col-2">
+            <div class="col-6">
                 <div class="input-group">
-                    <input class="form-control" 
-                    placeholder="yyyy-mm-dd" 
-                    name="fechaSalida"
-                    [(ngModel)]="rutaS.fechaSalida" 
-                    ngbDatepicker 
-                    #d="ngbDatepicker"
-                    [minDate]="today"
-                    [maxDate]="maxDate"
-                         />
-                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
-                        type="button"></button>
+                    <input class="form-control2" placeholder="yyyy-mm-dd" name="fechaSalida"
+                        [(ngModel)]="rutaS.fechaSalida" ngbDatepicker #d="ngbDatepicker" [minDate]="today"
+                        [maxDate]="maxDate" />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><img
+                            src="../assets/imagenes/calendar.png"></button>
+
                 </div>
             </div>
             <!--¿Cuántos viajan?-->
 
-            <div class="input-group">
+            <div class="input-group2">
                 <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
-
-                <!--   deberia crear un vuelo para pasajerosReserva ¿?
-<input name="pasajerosReserva" #pasajerosReserva="ngModel" [(ngModel)]="vuelo.pasajerosReserva" type="number" class="form-control" id="quantityInput" value="1" min="1" max="10"> -->
 
                 <input name="pasajerosReserva" type="number" class="form-control" id="quantityInput" value="1" min="1"
                     max="10">
