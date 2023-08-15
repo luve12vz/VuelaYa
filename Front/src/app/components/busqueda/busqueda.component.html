@@ -57,7 +57,7 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
                 <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
 
                 <input name="pasajerosReserva" type="number" class="form-control" id="quantityInput" value="1" min="1"
-                    max="10">
+                    max="10" [(ngModel)]="pasajeros">
                 <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
             </div>
             <button type="submit" value="Guardar" class="btn btn-primary" [disabled]="!vueloForm.form.valid">Buscar

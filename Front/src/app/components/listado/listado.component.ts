@@ -14,6 +14,7 @@ export class ListadoComponent implements OnInit {
   vuelos: Vuelo[]; // Aquí almacenaremos los datos de los vuelos
   rutas: RutaS;
   public url:string;
+  public pasajeros:any;
 
   constructor(
     private vueloService: VueloService,
@@ -25,17 +26,18 @@ export class ListadoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._route.params.subscribe(
+    this._route.paramMap.subscribe(
       params=>{
-        let id = params['id'];
-        console.log(id);
-        this.getVuelosById(id);
+        console.log(params);
+        let id:any = params.get('id');
+        this.pasajeros = params.get('p');
+        this.getVuelosByIdRuta(id);
         this.getRuta(id);
       }
     )
   }
 
-  getVuelosById(id:String){
+  getVuelosByIdRuta(id:String){
     this.vueloService.getVueloByRuta(id).subscribe(
       response=>{
         if(response.listaVuelos){

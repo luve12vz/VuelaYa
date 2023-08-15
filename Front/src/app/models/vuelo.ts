@@ -7,6 +7,6 @@ export class Vuelo{
         public horaLlegada:number,
         public horaSalida:number,
         public pasajerosReserva:number,
-        public idRuta:string
+        public ruta:string
     ){}
 }

@@ -20,6 +20,7 @@ export class BusquedaComponent implements OnInit {
   public valorUbicacion: any = undefined;
   public today: NgbDateStruct;
   public maxDate: NgbDateStruct;
+  public pasajeros: Number = 0;
   /* public vuelo:Vuelo;
    constructor(
      private 
@@ -122,7 +123,6 @@ export class BusquedaComponent implements OnInit {
   getVueloRuta() {
     this.rutaS.fechaSalida = this.rutaS.fechaSalida.year + "-" + ('0' + this.rutaS.fechaSalida.month).slice(-2)
       + "-" + ('0' + this.rutaS.fechaSalida.day).slice(-2)
-    console.log(this.rutaS.fechaSalida);
     this._vueloservice.getVueloBusquedaS(this.rutaS).subscribe(
       response => {
         if (response.rutasEncontradas) {
@@ -135,7 +135,7 @@ export class BusquedaComponent implements OnInit {
           alert("No hay vuelos disponibles para esa fecha");
       },
       () => { // Se envia a la pagina correspondiente
-        this._router.navigate(['/lista-vuelos', this.rutaS[0]._id])
+        this._router.navigate(['/lista-vuelos', this.rutaS[0]._id, this.pasajeros])
       }
     )
   }

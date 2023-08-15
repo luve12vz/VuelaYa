@@ -1,6 +1,6 @@
 <body>
     <h2>Resumen del vuelo seleccionado</h2>
-    <div class="vuelo-item">
+    <div class="vuelo-item" [routerLink]="['/compra', vuelo._id, pasajeros]">
         <!--<h3>Salida de {{this.rutas.origen}} a {{this.rutas.destino}} a la hora {{this.rutas.}}</h3>-->
         <span class="vueloElegido">Código del vuelo: {{vuelo.numeroVuelo}}</span>
         <br>
@@ -9,6 +9,7 @@
         <span class="vueloElegido">Hora de llegada: {{vuelo.horaLlegada}}:00</span>
         <br>
         <span class="vueloElegido">Precio: ${{vuelo.precio}}</span>
+        <span class="vueloElegido">Origen: {{rutas.origen}}</span> - <span class="vueloElegido">Destino: {{rutas.destino}}</span>
     </div>
     <div class="clearfix"></div>
 </body>
