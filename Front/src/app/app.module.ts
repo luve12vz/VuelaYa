@@ -19,6 +19,7 @@ import { NoticiasIiComponent } from './components/noticias-ii/noticias-ii.compon
 import { JsonPipe } from '@angular/common';
 import { NgbAlertModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { VueloService } from './services/vuelo.service';
+import { ResumenCompraComponent } from './components/resumen-compra/resumen-compra.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { VueloService } from './services/vuelo.service';
     RedComponent,
     ListadoComponent,
     ResumenDeVueloComponent,
-    NoticiasIiComponent
+    NoticiasIiComponent,
+    ResumenCompraComponent
   ],
   imports: [
     BrowserModule,
