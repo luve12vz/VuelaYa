@@ -1,1 +1,14 @@
-<p>resumen-compra works!</p>
+<h1>Resumen de compra</h1>
+<h4>Precio de los tiquetes ${{this.vuelo.precio}}</h4>
+<h4>Impuestos,tasas y cargos $</h4>
+<h4>Total $ {{this.pasajeros * this.vuelo.precio}}</h4>
+
+<br>
+<br>
+
+<h4>Tu seleccion</h4>
+{{this.vuelo.horaSalida}} {{this.vuelo.horaLlegada}}
+{{this.vuelo.precio}}
+{{this.rutas.origen}} {{this.rutas.destino}}
+{{this.vuelo.numeroVuelo}}
+{{this.pasajeros}}
