@@ -12,6 +12,7 @@ body {
 
 /* Estilos para el título amarillo */
 h2 {
+    font-family: 'Asap';
     color: #fed809;
     margin: 30px;
     font-family: 'Hug';
@@ -20,30 +21,31 @@ h2 {
 /* Estilos para el subtítulo celeste */
 h3 {
     color: #28a4e6;
+    font-family: 'Asap';
     margin: 10px;
+    margin-left: 30px;
 }
-
-/* Estilos para el listado .listado {
-    margin: 10px;
-    background-color: #28e651;
-} */
 
 
 /* Estilos para los elementos de vuelo */
 .vuelo-item {
     font-family: 'Asap';
-    color: aqua;
+    border: 2px #0073ff;
+    background-color: #c8cbbc7e;
+    border-radius: 20px;
     margin-top: 10px;
     padding: 5px;
-    border-bottom: 1px solid #a71414;
+    border-bottom: 1px solid #0073ff;
 }
 
 /* Estilos para el botón Seleccionar */
 .boton-rosado {
+    margin: 10px;
     font-family: 'Asap';
-    background-color: #e2097e;
+    border-radius: 20px;
+    border: 3px solid #96bb0d;
+    background-color: #95bb0da3;
     color: white;
-    border: none;
     padding: 5px 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -52,18 +54,21 @@ h3 {
 /* Estilos para las horas de vuelo */
 .hora-salida,
 .hora-llegada {
+    margin: 10px;
     font-family: 'Asap';
     color: #f8770f;
 }
 
 /* Estilos para el número de vuelo */
 .numero-vuelo {
+    margin: 10px;
     font-family: 'Asap';
     color: #28a4e6;
 }
 
 /* Estilos para el precio */
-.precio-verde {
+.precio {
+    margin: 10px;
     font-family: 'Asap';
     color: #96bb0d;
 }
