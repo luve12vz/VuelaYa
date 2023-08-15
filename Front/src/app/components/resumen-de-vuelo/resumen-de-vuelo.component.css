@@ -1,0 +1,28 @@
+body {
+    color: #28a4e6;
+    margin: 30px;
+    font-family: 'Hug';
+}
+
+h2 {
+    color: #96bb0d;
+    margin: 30px;
+    font-family: 'Hug';
+    font-size: 15px;
+}
+
+.vueloElegido {
+    font-family: 'Asap';
+    font-size: 15px;
+    margin: 20px;
+}
+
+.vuelo-item {
+    font-family: 'Asap';
+    border: 2px #0073ff;
+    background-color: #c8cbbc7e;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #0073ff;
+}
