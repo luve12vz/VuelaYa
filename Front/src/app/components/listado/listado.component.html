@@ -8,7 +8,8 @@
             <li *ngFor="let vuelo of vuelos" class="vuelo-item">
                 <button class="boton-rosado" [routerLink]="['/resumen', vuelo._id]">Seleccionar</button>
                 <br>
-                <span class="hora-salida">Hora de salida {{ vuelo.horaSalida }}:00</span> ____________________
+                <span class="hora-salida">Hora de salida {{ vuelo.horaSalida }}:00</span> ___________
+                <img src="../assets/imagenes/avion.png" width="70px" height="80px" alt="avion"> _________
                 <span class="hora-llegada">Hora de llegada {{vuelo.horaLlegada}}:00</span>
                 <br>
                 <span class="numero-vuelo">{{vuelo.numeroVuelo}}</span>
