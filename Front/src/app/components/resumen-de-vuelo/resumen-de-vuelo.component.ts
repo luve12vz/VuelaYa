@@ -18,7 +18,9 @@ export class ResumenDeVueloComponent implements OnInit{
     private _route: ActivatedRoute)
   {
     this.url=Global.url;
-    this.vuelo = new Vuelo("","",0,0,0,0,"");
+    // this.vuelo = new Vuelo("","",0,0,0,0,"");
+    //OJO con el constructor
+    this.vuelo = new Vuelo("","",0,0,0,0,0,"");
   }
 
   ngOnInit(): void {
