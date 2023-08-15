@@ -1,10 +1,15 @@
 <body>
     <h2>Resumen del vuelo</h2>
     <div class="vuelo-item">
-        <span class="vueloElegido">{{vuelo.numeroVuelo}} - {{vuelo.duracion}} - {{vuelo.precio}}</span>
+        <!--<h3>Vuelo de ida  a </h3>-->
+        <span class="vueloElegido">Código del vuelo: {{vuelo.numeroVuelo}}</span>
+        <br>
+        <span>Hora de salida: {{vuelo.horaSalida}}:00</span>
+        <br>
+        <span>Hora de llegada: {{vuelo.horaLlegada}}:00</span>
+        <br>
+        <span>Precio: ${{vuelo.precio}}</span>
     </div>
-
-
     <div class="clearfix"></div>
 </body>
 <app-footer></app-footer>
