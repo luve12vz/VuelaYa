@@ -22,6 +22,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: "gro";
+    src: url('fonts/ground.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 
 form {
     margin: 20px;

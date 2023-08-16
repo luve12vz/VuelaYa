@@ -1,14 +1,21 @@
-<h1>Resumen de compra</h1>
-<h4>Precio de los tiquetes ${{this.vuelo.precio}}</h4>
-<h4>Impuestos,tasas y cargos $</h4>
-<h4>Total $ {{this.pasajeros * this.vuelo.precio}}</h4>
+<body>
+    <h1 class="class1">Resumen de compra</h1>
+    <h4 class="class2">Tu selección:</h4>
+    <ul>
+        <li><h2>Hora de Salida: {{this.vuelo.horaSalida}}</h2></li>
+        <li><h2>Hora de Llegada: {{this.vuelo.horaLlegada}}</h2></li>
+        <li><h2>Precio x Boleto $: {{this.vuelo.precio}}</h2></li>
+        <li><h2>Lugar de Origen: {{this.rutas.origen}}</h2></li>
+        <li><h2>Lugar de Destino: {{this.rutas.destino}}</h2></li>
+        <li><h2>Número de Vuelo: {{this.vuelo.numeroVuelo}}</h2></li>
+        <li><h2>Número de Pasajeros: {{this.pasajeros}}</h2></li>
+    </ul>
+    <div class="image-container">
+        <img src="../assets/imagenes/re.png" alt="Imagen" class="">
+    </div>
+    <!--<h4>Impuestos,tasas y cargos $</h4>-->
+    <h3>Total: $ {{this.pasajeros * this.vuelo.precio}}</h3>
+    <div class="clearfix"></div>
+</body>
 
-<br>
-<br>
-
-<h4>Tu seleccion</h4>
-{{this.vuelo.horaSalida}} {{this.vuelo.horaLlegada}}
-{{this.vuelo.precio}}
-{{this.rutas.origen}} {{this.rutas.destino}}
-{{this.vuelo.numeroVuelo}}
-{{this.pasajeros}}
+<app-footer></app-footer>
