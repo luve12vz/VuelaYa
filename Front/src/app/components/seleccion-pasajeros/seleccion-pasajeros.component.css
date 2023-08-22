@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "WebSymbolsRegulars";
+    src: ('fonts/WebSymbols-Regular.otf');
+}
+
+.icon {
+    font-family: WebSymbolsRegulars;
+}
+
+@font-face {
+    font-family: "Asap";
+    src: ('fonts/Asap-MediumItalic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Hug";
+    /*src: url('fonts/First.ttf');
+    ../assets/fonts/Asap-MediumItalic.ttf*/
+    src: ('fonts/Hugshack.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gro";
+    src: ('fonts/ground.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    font-family: Asap;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+
+}
