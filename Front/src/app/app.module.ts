@@ -22,6 +22,7 @@ import { VueloService } from './services/vuelo.service';
 import { ResumenCompraComponent } from './components/resumen-compra/resumen-compra.component';
 import { SeleccionAsientosIdaComponent } from './components/seleccion-asientos-ida/seleccion-asientos-ida.component';
 import { SeleccionAsientosRegresoComponent } from './components/seleccion-asientos-regreso/seleccion-asientos-regreso.component';
+import { ResumendevueloidavueltaComponent } from './components/resumendevueloidavuelta/resumendevueloidavuelta.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SeleccionAsientosRegresoComponent } from './components/seleccion-asient
     NoticiasIiComponent,
     ResumenCompraComponent,
     SeleccionAsientosIdaComponent,
-    SeleccionAsientosRegresoComponent
+    SeleccionAsientosRegresoComponent,
+    ResumendevueloidavueltaComponent
   ],
   imports: [
     BrowserModule,
