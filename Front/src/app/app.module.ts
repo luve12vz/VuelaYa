@@ -22,9 +22,14 @@ import { VueloService } from './services/vuelo.service';
 import { ResumenCompraComponent } from './components/resumen-compra/resumen-compra.component';
 import { SeleccionAsientosIdaComponent } from './components/seleccion-asientos-ida/seleccion-asientos-ida.component';
 import { SeleccionAsientosRegresoComponent } from './components/seleccion-asientos-regreso/seleccion-asientos-regreso.component';
+<<<<<<< Updated upstream
 import { ResumendevueloidavueltaComponent } from './components/resumendevueloidavuelta/resumendevueloidavuelta.component';
 import { IngresoDatosComponent } from './components/ingreso-datos/ingreso-datos.component';
 import { EquipajeExtraComponent } from './components/equipaje-extra/equipaje-extra.component';
+=======
+import { ListadoRegresoComponent } from './components/listado-regreso/listado-regreso.component';
+import { ResumenCompraIdaVueltaComponent } from './components/resumen-compra-ida-vuelta/resumen-compra-ida-vuelta.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -41,9 +46,14 @@ import { EquipajeExtraComponent } from './components/equipaje-extra/equipaje-ext
     ResumenCompraComponent,
     SeleccionAsientosIdaComponent,
     SeleccionAsientosRegresoComponent,
+<<<<<<< Updated upstream
     ResumendevueloidavueltaComponent,
     IngresoDatosComponent,
     EquipajeExtraComponent
+=======
+    ListadoRegresoComponent,
+    ResumenCompraIdaVueltaComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
