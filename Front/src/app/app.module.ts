@@ -23,6 +23,8 @@ import { ResumenCompraComponent } from './components/resumen-compra/resumen-comp
 import { SeleccionAsientosIdaComponent } from './components/seleccion-asientos-ida/seleccion-asientos-ida.component';
 import { SeleccionAsientosRegresoComponent } from './components/seleccion-asientos-regreso/seleccion-asientos-regreso.component';
 import { ResumendevueloidavueltaComponent } from './components/resumendevueloidavuelta/resumendevueloidavuelta.component';
+import { IngresoDatosComponent } from './components/ingreso-datos/ingreso-datos.component';
+import { EquipajeExtraComponent } from './components/equipaje-extra/equipaje-extra.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ResumendevueloidavueltaComponent } from './components/resumendevueloida
     ResumenCompraComponent,
     SeleccionAsientosIdaComponent,
     SeleccionAsientosRegresoComponent,
-    ResumendevueloidavueltaComponent
+    ResumendevueloidavueltaComponent,
+    IngresoDatosComponent,
+    EquipajeExtraComponent
   ],
   imports: [
     BrowserModule,

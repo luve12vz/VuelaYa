@@ -10,6 +10,8 @@ import { ResumenCompraComponent } from './components/resumen-compra/resumen-comp
 import { SeleccionAsientosIdaComponent } from './components/seleccion-asientos-ida/seleccion-asientos-ida.component';
 import { SeleccionAsientosRegresoComponent } from './components/seleccion-asientos-regreso/seleccion-asientos-regreso.component';
 import { ResumendevueloidavueltaComponent } from './components/resumendevueloidavuelta/resumendevueloidavuelta.component';
+import { IngresoDatosComponent } from './components/ingreso-datos/ingreso-datos.component';
+import { EquipajeExtraComponent } from './components/equipaje-extra/equipaje-extra.component';
 
 const routes: Routes = [
   { path: 'home', component: InicioComponent },
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: 'seleccion_asientos_ida',component:SeleccionAsientosIdaComponent},
   {path:'seleccion_asientos_regreso',component:SeleccionAsientosRegresoComponent},
   { path: 'compra/:id/:p', component:ResumenCompraComponent },
+  {path:'formulario',component:IngresoDatosComponent},
+  {path:'Extra',component:EquipajeExtraComponent},
   { path: 'resumendevueloidavuelta/:id/:p', component:ResumendevueloidavueltaComponent }
 ];
 
