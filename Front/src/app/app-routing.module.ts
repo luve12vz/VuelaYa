@@ -7,6 +7,8 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { BeneficiosComponent } from './components/beneficios/beneficios.component';
 import { RedComponent } from './components/red/red.component';
 import { ResumenCompraComponent } from './components/resumen-compra/resumen-compra.component';
+import { SeleccionAsientosIdaComponent } from './components/seleccion-asientos-ida/seleccion-asientos-ida.component';
+import { SeleccionAsientosRegresoComponent } from './components/seleccion-asientos-regreso/seleccion-asientos-regreso.component';
 
 const routes: Routes = [
   { path: 'home', component: InicioComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'nosotros', component: NosotrosComponent},
   { path: 'beneficios', component: BeneficiosComponent},
   { path: 'red', component: RedComponent},
+  {path: 'seleccion_asientos_ida',component:SeleccionAsientosIdaComponent},
+  {path:'seleccion_asientos_regreso',component:SeleccionAsientosRegresoComponent},
   { path: 'compra/:id/:p', component:ResumenCompraComponent }
 ];
 

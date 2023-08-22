@@ -20,6 +20,8 @@ import { JsonPipe } from '@angular/common';
 import { NgbAlertModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { VueloService } from './services/vuelo.service';
 import { ResumenCompraComponent } from './components/resumen-compra/resumen-compra.component';
+import { SeleccionAsientosIdaComponent } from './components/seleccion-asientos-ida/seleccion-asientos-ida.component';
+import { SeleccionAsientosRegresoComponent } from './components/seleccion-asientos-regreso/seleccion-asientos-regreso.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ResumenCompraComponent } from './components/resumen-compra/resumen-comp
     ListadoComponent,
     ResumenDeVueloComponent,
     NoticiasIiComponent,
-    ResumenCompraComponent
+    ResumenCompraComponent,
+    SeleccionAsientosIdaComponent,
+    SeleccionAsientosRegresoComponent
   ],
   imports: [
     BrowserModule,

@@ -4,12 +4,11 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
 <body>
     <form #vueloForm="ngForm" (ngSubmit)="getVueloRuta()">
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" checked>
             <label class="form-check-label" for="flexRadioDisabled">
                 Ida y Vuelta
             </label>
-            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked
-                disabled>
+            <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" >
             <label class="form-check-label" for="flexRadioCheckedDisabled">
                 Solo Ida
             </label>
@@ -43,7 +42,18 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
             <label for="datepicker"></label>
             <div class="col-6">
                 <div class="input-group">
-                    <input class="form-control2" placeholder="yyyy-mm-dd" name="fechaSalida"
+                    <input class="form-control2" placeholder="Salida" name="fechaSalida"
+                        [(ngModel)]="rutaS.fechaSalida" ngbDatepicker #d="ngbDatepicker" [minDate]="today"
+                        [maxDate]="maxDate" />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><img
+                            src="../assets/imagenes/calendar.png"></button>
+
+                </div>
+            </div>
+            <!--Cambiar los campos para que funcione la captacion de la fecha-->
+            <div class="col-6">
+                <div class="input-group">
+                    <input class="form-control2" placeholder="Vuelta" name="fechaSalida"
                         [(ngModel)]="rutaS.fechaSalida" ngbDatepicker #d="ngbDatepicker" [minDate]="today"
                         [maxDate]="maxDate" />
                     <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><img
