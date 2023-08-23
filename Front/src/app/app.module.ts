@@ -23,6 +23,7 @@ import { ResumenCompraComponent } from './components/resumen-compra/resumen-comp
 import { SeleccionAsientosIdaComponent } from './components/seleccion-asientos-ida/seleccion-asientos-ida.component';
 import { SeleccionAsientosRegresoComponent } from './components/seleccion-asientos-regreso/seleccion-asientos-regreso.component';
 import { ResumendevueloidavueltaComponent } from './components/resumendevueloidavuelta/resumendevueloidavuelta.component';
+import { SeleccionPasajerosComponent } from './components/seleccion-pasajeros/seleccion-pasajeros.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ResumendevueloidavueltaComponent } from './components/resumendevueloida
     ResumenCompraComponent,
     SeleccionAsientosIdaComponent,
     SeleccionAsientosRegresoComponent,
-    ResumendevueloidavueltaComponent
+    ResumendevueloidavueltaComponent,
+    SeleccionPasajerosComponent
   ],
   imports: [
     BrowserModule,
