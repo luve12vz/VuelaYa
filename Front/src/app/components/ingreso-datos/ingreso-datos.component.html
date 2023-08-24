@@ -1,1 +1,21 @@
-<p>ingreso-datos works!</p>
+<div class="container mt-5">
+<h2>Formulario de Registro</h2>
+  <form>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" class="form-control" id="nombre"  [(ngModel)]="nombre" name="nombre">
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input type="text" class="form-control" id="apellido" [(ngModel)]="apellido" name="apellido">
+    </div>
+    <div *ngIf="esMenor || esMayorDe65" class="form-group">
+      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+      <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="fechaNacimiento" name="fechaNacimiento">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+
+
+

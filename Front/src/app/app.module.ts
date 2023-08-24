@@ -52,7 +52,8 @@ import { ResumenCompraIdaVueltaComponent } from './components/resumen-compra-ida
     ResumendevueloidavueltaComponent,
     SeleccionPasajerosComponent,
     ListadoRegresoComponent,
-    ResumenCompraIdaVueltaComponent
+    ResumenCompraIdaVueltaComponent,
+    IngresoDatosComponent
 
   ],
   imports: [
