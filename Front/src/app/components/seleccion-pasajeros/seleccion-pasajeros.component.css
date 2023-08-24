@@ -23,30 +23,94 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: "gro";
-    src: ('fonts/ground.ttf');
-    font-weight: normal;
-    font-style: normal;
+.container {
+    padding: 5px;
+    margin-right: 2px;
 }
 
-.container {
-    font-family: Asap;
-    float: left;
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.col-md-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+
+.col-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+.d-flex {
     display: flex;
+    align-items:left ;
+}
+
+.justify-content-between {
+    justify-content: space;
+}
+
+.align-items-center {
     align-items: center;
 }
 
-icon-shape {
+.text-dark {
+    color: #343a40;
+    text-align: right;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-left: 50px;
+}
+
+.button-minus,
+.button-plus {
+    font-size: 1rem;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.button-minus:hover,
+.button-plus:hover {
+    background-color: #e9ecef;
+}
+
+.quantity-field {
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+}
+
+.border-0 {
+    border: 0;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.lh-0 {
+    line-height: 0;
+}
+
+.icon-shape {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    vertical-align: middle;
+    font-size: 1rem;
+    border-radius: 50%;
 }
 
 .icon-sm {
-    width: 2rem;
-    height: 2rem;
-
+    font-size: 0.875rem;
 }
