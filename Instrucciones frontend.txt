@@ -1,3 +1,4 @@
+Reglas:
 Para generar un proyecto de angular para el frontend, se de asegurar la instalacion de node.js
 - Ahora para crear un proyecto de angular, nos dirigimos a la ruta de nuestro proyecto en general y en el CMD de nuestro editor de codigo, escribimos "ng new frontend" donde 'frontend' es el nombre de la carpeta donde se instalara todas las dependencias
 
