@@ -4,6 +4,7 @@ import { RutaS } from 'src/app/models/rutaS';
 import { Vuelo } from 'src/app/models/vuelo';
 import { Global } from 'src/app/services/global';
 import { VueloService } from 'src/app/services/vuelo.service';
+import { ResumenCompraIdaVueltaComponent } from '../resumen-compra-ida-vuelta/resumen-compra-ida-vuelta.component';
 
 @Component({
   selector: 'app-resumen-de-vuelo',
