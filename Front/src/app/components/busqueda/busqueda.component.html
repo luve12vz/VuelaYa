@@ -62,23 +62,83 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
 
                 </div>
             </div>
-            <!--¿Cuántos viajan?-->
-
-            <!-- <div class="input-group2">
-                <button class="btn btn-outline-secondary" type="button" id="decrementBtn">-</button>
-
-                <input name="pasajerosReserva" type="number" class="form-control" id="quantityInput" value="1" min="1"
-                    max="10" [(ngModel)]="pasajeros">
-                <button class="btn btn-outline-secondary" type="button" id="incrementBtn">+</button>
-            </div>-->
             <div class="input-group2">
-                <app-seleccion-pasajeros></app-seleccion-pasajeros>
+                <div class="container">
+                    <div class="row mb-8 justify-content-center ">
+                        <div class="col-md-6 col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between" >
+                                        <div>
+                                            <p class="text-dark">Mayores de 65 años</p>
+                                        </div>
+                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                            <input type="button" value="-"
+                                                class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
+                                                data-field="quantity">
+                                            <input type="number" step="1" max="10" value="1" name="quantity"
+                                                class="quantity-field border-0 text-center w-25">
+                                            <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm "
+                                                data-field="quantity">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div  >
+                                        <div>
+                                            <p class="text-dark">Entre 25 y 65 años</p>
+                                        </div>
+                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                            <input type="button" value="-"
+                                                class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
+                                                data-field="quantity">
+                                            <input type="number" step="1" max="10" value="1" name="quantity"
+                                                class="quantity-field border-0 text-center w-25">
+                                            <input type="button" value="+"
+                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div  >
+                                        <div>
+                                            <p class="text-dark">Entre 2 y 25 años</p>
+                                        </div>
+                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                            <input type="button" value="-"
+                                                class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
+                                                data-field="quantity">
+                                            <input type="number" step="1" max="10" value="1" name="quantity"
+                                                class="quantity-field border-0 text-center w-25">
+                                            <input type="button" value="+"
+                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+                                        </div>
+                
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div  >
+                                        <div>
+                                            <p class="text-dark">Menores de 2 años</p>
+                                        </div>
+                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                            <input type="button" value="-"
+                                                class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
+                                                data-field="quantity">
+                                            <input type="number" step="1" max="10" value="1" name="quantity"
+                                                class="quantity-field border-0 text-center w-25">
+                                            <input type="button" value="+"
+                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+                                        </div>
+                
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
-
-
             <button type="submit" value="Guardar" class="btn btn-primary" [disabled]="!vueloForm.form.valid">Buscar
                 vuelo</button>
 
         </div>
-    </form>
-</body>
