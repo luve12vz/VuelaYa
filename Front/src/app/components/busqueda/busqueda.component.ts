@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { VueloService } from 'src/app/services/vuelo.service';
 import { Aeropuerto } from 'src/app/models/aeropuerto';
@@ -21,6 +21,9 @@ export class BusquedaComponent implements OnInit {
   public today: NgbDateStruct;
   public maxDate: NgbDateStruct;
   public pasajeros: Number = 0;
+  public forma: String = "I";
+  public fechaVuelta: any;
+  public VueltaDisabled: boolean = true;
   /* public vuelo:Vuelo;
    constructor(
      private 
@@ -38,14 +41,14 @@ export class BusquedaComponent implements OnInit {
 
   ngOnInit(): void {
     //this.setupDatepicker();
-    this.setupIncrementDecrement();
+    //this.setupIncrementDecrement();
     this.validateOriginAndDestination();
     this.getAeropuertos();
   }
   ngAfterViewInit(): void {
     this.validateOriginAndDestination();
   }
-  /*   setupDatepicker() {
+  /*  setupDatepicker() {
       const today = new Date();
       $("#datepicker").datepicker({
         dateFormat: "dd-mm-yy",
@@ -120,9 +123,26 @@ export class BusquedaComponent implements OnInit {
     this.isDisabled = false;
   }
 
+  checkRadio(){
+    if(this.forma === "I"){
+      this.VueltaDisabled = true;
+      this.fechaVuelta = "";
+      console.log(this.forma)
+    }
+    else if (this.forma === "IV"){
+      this.VueltaDisabled = false;
+      console.log(this.forma)
+    }
+  }
+
   getVueloRuta() {
     this.rutaS.fechaSalida = this.rutaS.fechaSalida.year + "-" + ('0' + this.rutaS.fechaSalida.month).slice(-2)
       + "-" + ('0' + this.rutaS.fechaSalida.day).slice(-2)
+    if(this.fechaVuelta != undefined){
+      this.fechaVuelta = this.fechaVuelta.year + "-" + ('0' + this.fechaVuelta.month).slice(-2)
+      + "-" + ('0' + this.fechaVuelta.day).slice(-2)
+    }
+    
     this._vueloservice.getVueloBusquedaS(this.rutaS).subscribe(
       response => {
         if (response.rutasEncontradas) {
@@ -135,7 +155,11 @@ export class BusquedaComponent implements OnInit {
           alert("No hay vuelos disponibles para esa fecha");
       },
       () => { // Se envia a la pagina correspondiente
-        this._router.navigate(['/lista-vuelos', this.rutaS[0]._id, this.pasajeros])
+        if(this.forma === "I"){
+          this._router.navigate(['/lista-vuelos', this.forma,this.rutaS[0]._id, this.pasajeros, ''])
+        }else{
+          this._router.navigate(['/lista-vuelos', this.forma,this.rutaS[0]._id, this.pasajeros, this.fechaVuelta])
+        }
       }
     )
   }

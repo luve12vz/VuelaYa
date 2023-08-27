@@ -13,12 +13,19 @@ import { VueloService } from 'src/app/services/vuelo.service'; // Asegúrate de 
 export class ListadoComponent implements OnInit {
   vuelos: Vuelo[]; // Aquí almacenaremos los datos de los vuelos
   rutas: RutaS;
+  public rutaRR = new RutaS("","","","");
+  public isButtonVisible = true;
+  public isButtonVisible2 = true;
   public url:string;
   public pasajeros:any;
-
+  public esIV: any;
+  public rutaRegresoOrigen: string = "";
+  public rutaRegresoDestino: string = "";
+  public rutaRegresoFecha: any;
+  public routerRegreso: any;
   constructor(
     private vueloService: VueloService,
-    private _route: ActivatedRoute    )
+    private _route: ActivatedRoute)
   {
     this.url=Global.url;
     this.rutas = new RutaS("","","","");
@@ -29,12 +36,24 @@ export class ListadoComponent implements OnInit {
     this._route.paramMap.subscribe(
       params=>{
         console.log(params);
-        let id:any = params.get('id');
+        let id:any = params.get('idV');
+        this.esIV = params.get('c');
         this.pasajeros = params.get('p');
-        this.getVuelosByIdRuta(id);
+        this.rutaRegresoFecha = params.get('f');
+        this.redireccionamiento(this.esIV);
         this.getRuta(id);
+        this.getVuelosByIdRuta(id);
       }
     )
+  }
+
+  redireccionamiento(dato:string){
+    if(dato === "I"){
+      this.isButtonVisible = false;
+    }
+    else{
+      this.isButtonVisible2 = false;
+    }
   }
 
   getVuelosByIdRuta(id:String){
@@ -54,6 +73,32 @@ export class ListadoComponent implements OnInit {
         if(response.ruta){
           this.rutas = response.ruta;
         }
+      },error => {
+        console.log("No hay vuelos");
+        alert("No hay vuelos disponibles para esa fecha");
+      },
+      () => { // Se envia a la pagina correspondiente
+        if(this.esIV === "IV"){
+          this.rutaRegresoOrigen = this.rutas.destino;
+          this.rutaRegresoDestino = this.rutas.origen;
+          this.getVueloRuta();
+        }
+      }
+    )
+  }
+
+  getVueloRuta() {
+    let rutaR = new RutaS("", this.rutaRegresoOrigen, this.rutaRegresoDestino, this.rutaRegresoFecha);
+    this.vueloService.getVueloBusquedaS(rutaR).subscribe(
+      response => {
+        if (response.rutasEncontradas) {
+          this.rutaRR = response.rutasEncontradas;
+          console.log(this.rutaRR);
+        }
+      },
+      error => {
+          console.log("No hay vuelos");
+          alert("No hay vuelos disponibles para esa fecha");
       }
     )
   }

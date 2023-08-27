@@ -18,7 +18,7 @@ import { ListadoRegresoComponent } from './components/listado-regreso/listado-re
 const routes: Routes = [
   { path: 'home', component: InicioComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'lista-vuelos/:id/:p', component: ListadoComponent },
+  { path: 'lista-vuelos/:c/:idV/:p/:f', component: ListadoComponent },
   { path: 'resumen/:id/:p', component: ResumenDeVueloComponent },
   { path: 'nosotros', component: NosotrosComponent },
   { path: 'beneficios', component: BeneficiosComponent },
@@ -26,11 +26,11 @@ const routes: Routes = [
   { path: 'seleccion_asientos_ida', component: SeleccionAsientosIdaComponent },
   { path: 'seleccion_asientos_regreso', component: SeleccionAsientosRegresoComponent },
   { path: 'compra/:id/:p', component: ResumenCompraComponent },
-  { path: 'resumendevueloidavuelta/:id/:p', component: ResumendevueloidavueltaComponent },
-  { path: 'resumen-compra-ida-vuelta/:id/:p', component: ResumenCompraIdaVueltaComponent },
+  { path: 'resumendevueloidavuelta/:idV/:idR/:p', component: ResumendevueloidavueltaComponent },
+  { path: 'resumen-compra-ida-vuelta/:idV/:idR/:p', component: ResumenCompraIdaVueltaComponent },
   { path: 'equipaje-extra', component: EquipajeExtraComponent },
   { path: 'ingreso-datos', component: IngresoDatosComponent },
-  { path: 'listado-regreso', component: ListadoRegresoComponent }
+  { path: 'listado-regreso/:idV/:idR/:p', component: ListadoRegresoComponent }
 ];
 
 @NgModule({
