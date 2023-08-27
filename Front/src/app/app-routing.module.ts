@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'resumen-compra-ida-vuelta/:idV/:idR/:p', component: ResumenCompraIdaVueltaComponent },
   { path: 'equipaje-extra', component: EquipajeExtraComponent },
   { path: 'ingreso-datos', component: IngresoDatosComponent },
-  { path: 'listado-regreso/:idV/:idR/:p', component: ListadoRegresoComponent }
+  { path: 'listado-regreso/:idI/:idR/:idVu/:p', component: ListadoRegresoComponent }
 ];
 
 @NgModule({

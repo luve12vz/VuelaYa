@@ -13,7 +13,7 @@
                     <button class="boton-rosado" name="regreso" [routerLink]="null" >Seleccionar</button>
                 </div>
                 <div [hidden]="isButtonVisible2" *ngIf="esIV === 'IV'">
-                    <button class="boton-rosado" name="regreso" [routerLink]="['/listado-regreso', rutas._id, rutaRR[0]._id, pasajeros]" >Seleccionar</button>
+                    <button class="boton-rosado" name="regreso" [routerLink]="['/listado-regreso', rutas._id, rutaRR[0]._id, vuelo._id, pasajeros]" >Seleccionar</button>
                 </div>
                 <br>
                 <span class="hora-salida">Hora de salida {{ vuelo.horaSalida }}:00</span> ___________

@@ -82,6 +82,7 @@ export class ListadoComponent implements OnInit {
           this.rutaRegresoOrigen = this.rutas.destino;
           this.rutaRegresoDestino = this.rutas.origen;
           this.getVueloRuta();
+          this.getVuelosByIdRuta(this.rutaRR[0]._id);
         }
       }
     )
