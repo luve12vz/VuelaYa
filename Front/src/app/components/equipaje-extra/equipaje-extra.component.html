@@ -1,19 +1,24 @@
-<h3>Selecciona tu equipaje extra:</h3>
-<div>
+<body>
+    <div class="clearfix"></div>
+    <h3>Selecciona tu equipaje extra:</h3>
+    <div>
+        <img src="../assets/imagenes/m1.png" width="70px" height="80px" alt="maleta1">
+        <h4>maleta de mano</h4>
+        <button (click)="decrementExtraMano()">-</button>
+        <span>{{ extraCountmano }}</span>
+        <button (click)="incrementExtraMano()">+</button>
+    </div>
+    <div>
+        <img src="../assets/imagenes/m2.png" width="70px" height="80px" alt="maleta2">
+        <h4>maleta de 23kg</h4>
+        <button (click)="decrementExtra()">-</button>
+        <span>{{ extraCount23kg }}</span>
+        <button (click)="incrementExtra()">+</button>
+    </div>
 
-    <h4>maleta de mano</h4>
-    <button (click)="decrementExtraMano()">-</button>
-    <span>{{ extraCountmano }}</span>
-    <button (click)="incrementExtraMano()">+</button>
-</div>
-<div>
+    <br>
 
-    <h4>maleta de 23kg</h4>
-    <button (click)="decrementExtra()">-</button>
-    <span>{{ extraCount23kg }}</span>
-    <button (click)="incrementExtra()">+</button>
-</div>
+    <button value="Guardar" class="btn btn-primary">Ir a resumen</button>
+    <div class="clearfix"></div>
 
-<br>
-
-<button value="Guardar" class="btn btn-primary">Ir a resumen</button>
+</body>
