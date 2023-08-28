@@ -8,41 +8,47 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EquipajeExtraComponent implements OnInit {
   public params: any;
-  extraCountmano:number=0;
-  extraCount23kg:number=0;
-
-  constructor(private route: ActivatedRoute) { 
+  extraCountmano: number = 0;
+  extraCount23kg: number = 0;
+  maxMaletas: number = 3;
+  constructor(private route: ActivatedRoute) {
 
   }
   ngOnInit(): void {
     this.route.queryParams.subscribe(
-      params=>{
+      params => {
         this.params = params;
-        if(this.params.IV == "I"){
-          
-        }
-        else{
+        if (this.params.IV == "I") {
 
         }
-        
+        else {
+
+        }
+
       }
     )
 
   }
-  incrementExtraMano(){
-    this.extraCountmano++;
+  incrementExtraMano() {
+    if (this.extraCountmano < this.maxMaletas) {
+      this.extraCountmano++;
+    }
+
   }
-  decrementExtraMano(){
-    if(this.extraCountmano>0){
+  decrementExtraMano() {
+    if (this.extraCountmano > 0) {
       this.extraCountmano--;
     }
   }
 
-  incrementExtra(){
-    this.extraCount23kg++;
+  incrementExtra() {
+    if (this.extraCount23kg < this.maxMaletas) {
+      this.extraCount23kg++;
+    }
+
   }
-  decrementExtra(){
-    if(this.extraCountmano>0){
+  decrementExtra() {
+    if (this.extraCount23kg > 0) {
       this.extraCount23kg--;
     }
   }
