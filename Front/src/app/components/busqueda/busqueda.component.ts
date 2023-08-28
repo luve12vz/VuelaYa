@@ -20,10 +20,14 @@ export class BusquedaComponent implements OnInit {
   public valorUbicacion: any = undefined;
   public today: NgbDateStruct;
   public maxDate: NgbDateStruct;
-  public pasajeros: Number = 0;
+  public pasajeros: Number[];
   public forma: String = "I";
   public fechaVuelta: any;
   public VueltaDisabled: boolean = true;
+  public mayores65: number = 0;
+  public entre25y65: number = 0;
+  public entre2y24: number = 0;
+  public menores2: number = 0;
   /* public vuelo:Vuelo;
    constructor(
      private 
@@ -35,6 +39,7 @@ export class BusquedaComponent implements OnInit {
   ) {
     this.rutaS = new RutaS("", "", "", "");
     this.aeropuertos = [];
+    this.pasajeros = [];
     this.today = this.calendar.getToday();
     this.maxDate = { year: 2024, month: 12, day: 31 };
   }
@@ -156,9 +161,11 @@ export class BusquedaComponent implements OnInit {
       },
       () => { // Se envia a la pagina correspondiente
         if(this.forma === "I"){
-          this._router.navigate(['/lista-vuelos', this.forma,this.rutaS[0]._id, this.pasajeros, ''])
+          this.pasajeros = [this.mayores65, this.entre25y65, this.entre2y24, this.menores2];
+          this._router.navigate(['/lista-vuelos', this.forma,this.rutaS[0]._id, JSON.stringify(this.pasajeros), ''])
         }else{
-          this._router.navigate(['/lista-vuelos', this.forma,this.rutaS[0]._id, this.pasajeros, this.fechaVuelta])
+          this.pasajeros = [this.mayores65, this.entre25y65, this.entre2y24, this.menores2];
+          this._router.navigate(['/lista-vuelos', this.forma,this.rutaS[0]._id, JSON.stringify(this.pasajeros), this.fechaVuelta])
         }
       }
     )

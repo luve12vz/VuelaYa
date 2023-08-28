@@ -1,1 +1,42 @@
-<h4>Esta pagina es para el listado de los vuelos de REGRESO. Al igual que el listado de vuelos de ida que habias hecho, necesito que aqui me pases los siguientes datos de los vuelos de REGRESO: el origen y el destino escogidos. Tambien la hora de salida del vuelo, hora de llegada del vuelo, numero de vuelo , y el precio </h4>
+<body>
+    <div class="clearfix"></div>
+    <h2>Vuelo de ida seleccionado</h2>
+    <ul>
+        <li><h2>Hora de Salida: {{this.vueloI.horaSalida}}</h2></li>
+        <li><h2>Hora de Llegada: {{this.vueloI.horaLlegada}}</h2></li>
+        <li><h2>Precio x Boleto $: {{this.vueloI.precio}}</h2></li>
+        <li><h2>Lugar de Origen: {{this.rutasI.origen}}</h2></li>
+        <li><h2>Lugar de Destino: {{this.rutasI.destino}}</h2></li>
+        <li><h2>Número de Vuelo: {{this.vueloI.numeroVuelo}}</h2></li>
+        <li><h2>Número de Pasajeros: {{this.pasajeros}}</h2></li>
+    </ul>
+    <div class="image-container">
+        <img src="../assets/imagenes/re.png" alt="Imagen" class="">
+    </div>
+    <h2>Listado de Vuelos Disponibles de regreso</h2>
+    <div *ngIf="vuelosR.length > 0">
+        <h3>Salida de {{this.rutasR.origen}} a {{this.rutasR.destino}}</h3>
+        <ul>
+            <li *ngFor="let vuelo of vuelosR" class="vuelo-item">
+                <div>
+                    <button class="boton-rosado" name="ida" [routerLink]="['/equipaje-extra']" [queryParams]="{idVR: vuelo._id, idVI: vueloI._id, IV: esIV, p: pasajeros}">Seleccionar</button>
+                </div>
+                <br>
+                <span class="hora-salida">Hora de salida {{ vuelo.horaSalida }}:00</span> ___________
+                <img src="../assets/imagenes/avion.png" width="70px" height="80px" alt="avion"> _________
+                <span class="hora-llegada">Hora de llegada {{vuelo.horaLlegada}}:00</span>
+                <br>
+                <span class="numero-vuelo">{{vuelo.numeroVuelo}}</span>
+                <br>
+                <h4 class="precio">${{vuelo.precio}}</h4>
+                <br>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="vuelosR.length === 0">
+        <p>No se encontraron vuelos disponibles.</p>
+    </div>
+    <div class="clearfix"></div>
+
+</body>
+<app-footer></app-footer>
