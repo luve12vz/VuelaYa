@@ -18,7 +18,14 @@
 
     <br>
 
-    <button value="Guardar" class="btn btn-primary">Ir a resumen</button>
-    <div class="clearfix"></div>
+    <div [hidden]="isButtonVisible">
+        <button name="ida" [routerLink]="['/equipaje-extra']" [queryParams]="{idVI: idVI, p: pasajeros}">Ir a resumen</button>
+    </div>
+    <div [hidden]="isButtonVisible2" *ngIf="params.IV === 'I'">
+        <button name="regreso" [routerLink]="null" >Ir a resumen</button>
+    </div>
+    <div [hidden]="isButtonVisible2" *ngIf="params.IV === 'IV'">
+        <button name="regreso" [routerLink]="['/listado-regreso']" [queryParams]= "{idVI: idVI, idVR: idVR, p: pasajeros}" >Ir a resumen</button>
+    </div>
 
 </body>
