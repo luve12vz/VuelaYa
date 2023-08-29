@@ -1,2 +1,19 @@
-<p>equipaje-extra works!</p>
-<button value="Guardar" class="btn btn-primary">Ir a  resumen</button>
+<h3>Selecciona tu equipaje extra:</h3>
+<div>
+
+    <h4>maleta de mano</h4>
+    <button (click)="decrementExtraMano()">-</button>
+    <span>{{ extraCountmano }}</span>
+    <button (click)="incrementExtraMano()">+</button>
+</div>
+<div>
+
+    <h4>maleta de 23kg</h4>
+    <button (click)="decrementExtra()">-</button>
+    <span>{{ extraCount23kg }}</span>
+    <button (click)="incrementExtra()">+</button>
+</div>
+
+<br>
+
+<button value="Guardar" class="btn btn-primary">Ir a resumen</button>

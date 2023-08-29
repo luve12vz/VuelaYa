@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EquipajeExtraComponent implements OnInit {
   public params: any;
+  extraCountmano:number=0;
+  extraCount23kg:number=0;
+
   constructor(private route: ActivatedRoute) { 
 
   }
@@ -25,6 +28,23 @@ export class EquipajeExtraComponent implements OnInit {
       }
     )
 
+  }
+  incrementExtraMano(){
+    this.extraCountmano++;
+  }
+  decrementExtraMano(){
+    if(this.extraCountmano>0){
+      this.extraCountmano--;
+    }
+  }
+
+  incrementExtra(){
+    this.extraCount23kg++;
+  }
+  decrementExtra(){
+    if(this.extraCountmano>0){
+      this.extraCount23kg--;
+    }
   }
 
 }
