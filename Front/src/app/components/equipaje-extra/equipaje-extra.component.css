@@ -9,54 +9,28 @@ body {
     padding: 5px;
     border-bottom: 1px solid #0073ff;
     cursor: pointer;
-    width: 25%;
-
+    width: 30%;
 }
 
-.class1 {
-    color: #96bb0d;
-    margin: 15px;
-    font-family: 'Hug';
-    font-size: 15px;
-    text-align: center;
-}
-
-.class2 {
-    font-family: 'Hug';
-    font-size: 15px;
-    margin: 10px;
-}
-
-h2 {
-    font-size: 17px;
-    font-family: 'Asap';
-    margin: 5px;
-}
 
 h3 {
     font-family: 'gro';
     margin: 15px;
-    text-align: right;
+    font-size: 25px;
+    text-align: left;
+    color: #96bb0d;
 }
 
 h4 {
     font-family: 'Asap';
     margin: 5px;
+    font-size: 17px;
+    color: #28a4e6;
 }
 
-ul {
-    font-family: 'Asap';
-    padding: 5px;
-    margin: 20px;
-    margin-bottom: 10px;
-    background-image: src("../assets/imagenes/re.png"); 
-}
 
-li {
-    font-family: 'Asap';
-    margin-bottom: 10px;
-}
 .image-container {
+    margin: 5px;
     margin-left: 10px;
     margin-right: 20px;
     text-align: right;
@@ -68,3 +42,21 @@ li {
     height: -1000px;
 }
 
+.button-minus,
+.button-plus {
+    font-size: 1rem;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #0073ff;
+    color: white;
+    font-family: "Asap";
+    border: 1px solid #1678f0;
+}
+
+.button-minus:hover,
+.button-plus:hover {
+    background-color: #e9ecef;
+    color: #0073ff;
+}

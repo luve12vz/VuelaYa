@@ -2,30 +2,29 @@
     <div class="clearfix"></div>
     <h3>Selecciona tu equipaje extra:</h3>
     <div>
-        <img src="../assets/imagenes/m1.png" width="70px" height="80px" alt="maleta1">
-        <h4>maleta de mano</h4>
-        <button (click)="decrementExtraMano()">-</button>
-        <span>{{ extraCountmano }}</span>
-        <button (click)="incrementExtraMano()">+</button>
+
+        <h4> <img src="../assets/imagenes/m1.png" width="90px" height="60px" alt="maleta1">Maleta de mano
+            <button (click)="decrementExtraMano()"
+                class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
+                data-field="quantity">-</button>
+            <span>{{ extraCountmano }}</span>
+            <button (click)="incrementExtraMano()" class="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                data-field="quantity">+</button>
+        </h4>
     </div>
     <div>
-        <img src="../assets/imagenes/m2.png" width="70px" height="80px" alt="maleta2">
-        <h4>maleta de 23kg</h4>
-        <button (click)="decrementExtra()">-</button>
-        <span>{{ extraCount23kg }}</span>
-        <button (click)="incrementExtra()">+</button>
+
+        <h4> <img src="../assets/imagenes/m2.png" width="80px" height="90px" alt="maleta2"> Maleta de 23kg
+            <button (click)="decrementExtra()" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
+                data-field="quantity">-</button>
+            <span>{{ extraCount23kg }}</span>
+            <button (click)="incrementExtra()" class="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                data-field="quantity">+</button>
+        </h4>
     </div>
 
     <br>
 
-    <div [hidden]="isButtonVisible">
-        <button name="ida" [routerLink]="['/equipaje-extra']" [queryParams]="{idVI: idVI, p: pasajeros}">Ir a resumen</button>
-    </div>
-    <div [hidden]="isButtonVisible2" *ngIf="params.IV === 'I'">
-        <button name="regreso" [routerLink]="null" >Ir a resumen</button>
-    </div>
-    <div [hidden]="isButtonVisible2" *ngIf="params.IV === 'IV'">
-        <button name="regreso" [routerLink]="['/listado-regreso']" [queryParams]= "{idVI: idVI, idVR: idVR, p: pasajeros}" >Ir a resumen</button>
-    </div>
-
+    <div class="clearfix"></div>
 </body>
+<!--<app-footer></app-footer>-->

@@ -107,6 +107,13 @@ h2 {
     margin: 5px;
 }
 
+.ti1 {
+    font-size: 18px;
+    font-family: 'Hug';
+    margin: 5px;
+    color: #28a4e6;
+
+}
 .ti2 {
     font-size: 30px;
     font-family: 'Asap';
@@ -118,6 +125,7 @@ h3 {
     font-family: 'gro';
     margin: 15px;
     font-size: 40px;
+    color: #f8770f;
 
 }
 
