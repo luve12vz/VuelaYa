@@ -78,7 +78,7 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
                                                 data-field="quantity">
                                             <input type="number" step="1" max="10" min="1" value="1" name="quantity"
-                                                class="quantity-field border-0 text-center w-50">
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="mayores65">
                                             <input type="button" value="+"
                                                 class="button-plus border rounded-circle icon-shape icon-sm "
                                                 data-field="quantity">
@@ -95,7 +95,7 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
                                                 data-field="quantity">
                                             <input type="number" step="1" max="10" min="1" value="1" name="quantity"
-                                                class="quantity-field border-0 text-center w-50">
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="entre25y65">
                                             <input type="button" value="+"
                                                 class="button-plus border rounded-circle icon-shape icon-sm lh-0"
                                                 data-field="quantity">
@@ -105,14 +105,14 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
                                 <div class="col-12">
                                     <div>
                                         <div>
-                                            <p class="text-dark">Entre 2 y 25 años</p>
+                                            <p class="text-dark">Entre 2 y 24 años</p>
                                         </div>
                                         <div class="input-group w-auto align-items-center">
                                             <input type="button" value="-"
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
                                                 data-field="quantity">
                                             <input type="number" step="1" max="10" min="1" value="1" name="quantity"
-                                                class="quantity-field border-0 text-center w-50">
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="entre2y24">
                                             <input type="button" value="+"
                                                 class="button-plus border rounded-circle icon-shape icon-sm lh-0"
                                                 data-field="quantity">
@@ -130,7 +130,7 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
                                                 data-field="quantity">
                                             <input type="number" step="1" max="10" min="0" value="0" name="quantity"
-                                                class="quantity-field border-0 text-center w-50">
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="menores2">
                                             <input type="button" value="+"
                                                 class="button-plus border rounded-circle icon-shape icon-sm lh-0"
                                                 data-field="quantity">

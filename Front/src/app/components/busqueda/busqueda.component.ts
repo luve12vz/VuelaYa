@@ -25,7 +25,7 @@ export class BusquedaComponent implements OnInit {
   public fechaVuelta: any;
   public VueltaDisabled: boolean = true;
   public mayores65: number = 0;
-  public entre25y65: number = 0;
+  public entre25y65: number = 1;
   public entre2y24: number = 0;
   public menores2: number = 0;
   /* public vuelo:Vuelo;

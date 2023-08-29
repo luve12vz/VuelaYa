@@ -12,6 +12,11 @@ export class EquipajeExtraComponent implements OnInit {
   extraCountmano: number = 0;
   extraCount23kg: number = 0;
   maxMaletas: number = 3;
+  public isButtonVisible = true;
+  public isButtonVisible2 = true;
+  public pasajeros: Number[] = [];
+  public idVI: string = "";
+  public idVR: string = "";
   constructor(private route: ActivatedRoute) {
 
   }
@@ -19,11 +24,15 @@ export class EquipajeExtraComponent implements OnInit {
     this.route.queryParams.subscribe(
       params => {
         this.params = params;
+        this.pasajeros = this.params.p;
         if (this.params.IV == "I") {
-
+          this.isButtonVisible = false;
+          this.idVI = this.params.idV;
         }
         else {
-
+          this.isButtonVisible2 = false;
+          this.idVI = this.params.idVI;
+          this.idVR = this.params.idVR;
         }
 
       }
