@@ -15,6 +15,9 @@ export class ResumenDeVueloComponent implements OnInit{
   public url: String;
   public pasajeros:any;
   public rutas: RutaS;
+  public params: any;
+  public em: any;
+  public e23: any;
   
   constructor(
     private vueloService: VueloService,
@@ -28,12 +31,14 @@ export class ResumenDeVueloComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this._route.paramMap.subscribe(
-      params=>{
-        let id:any = params.get('id');
-        this.pasajeros = params.get('p');
-        console.log(id);
-        this.getVueloById(id);
+    this._route.queryParams.subscribe(
+      params => {
+        this.params = params;
+        let idVI:any = this.params.idVI;
+        this.pasajeros = this.params.p;
+        this.em = this.params.em;
+        this.e23 = this.params.e23;
+        this.getVueloById(idVI);
       }
     )
   }

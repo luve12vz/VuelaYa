@@ -25,6 +25,16 @@
 
     <br>
 
+    <div [hidden]="isButtonVisible">
+        <button class="boton-rosado" name="ida" [routerLink]="['/resumen']" [queryParams]="{idVI: idVI, p: pasajeros, em: extraCountmano, e23: extraCount23kg}">Seleccionar</button>
+    </div>
+    <div [hidden]="isButtonVisible2" *ngIf="esIV === 'I'">
+        <button class="boton-rosado" name="regreso" [routerLink]="null">Seleccionar</button>
+    </div>
+    <div [hidden]="isButtonVisible2" *ngIf="esIV === 'IV'">
+        <button class="boton-rosado" name="regreso" [routerLink]="['/resumen-de-vuelo-ida-vuelta']" [queryParams]= "{idVI: idVI, idVR: idVR, p: pasajeros, em: extraCountmano, e23: extraCount23kg}" >Seleccionar</button>
+    </div>
+
     <div class="clearfix"></div>
 </body>
 <!--<app-footer></app-footer>-->

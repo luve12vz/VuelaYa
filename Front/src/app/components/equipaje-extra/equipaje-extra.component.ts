@@ -12,6 +12,7 @@ export class EquipajeExtraComponent implements OnInit {
   extraCountmano: number = 0;
   extraCount23kg: number = 0;
   maxMaletas: number = 3;
+  public esIV: String = "";
   public isButtonVisible = true;
   public isButtonVisible2 = true;
   public pasajeros: Number[] = [];
@@ -25,7 +26,8 @@ export class EquipajeExtraComponent implements OnInit {
       params => {
         this.params = params;
         this.pasajeros = this.params.p;
-        if (this.params.IV == "I") {
+        this.esIV = this.params.IV;
+        if (this.esIV == "I") {
           this.isButtonVisible = false;
           this.idVI = this.params.idV;
         }
