@@ -42,7 +42,7 @@ export class ListadoRegresoComponent implements OnInit {
       }
     )
   }
-
+  
   getVuelosByIdRuta(id:String){
     this.vueloService.getVueloByRuta(id).subscribe(
       response=>{

@@ -5,6 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './seleccion-asientos-ida.component.html',
   styleUrls: ['./seleccion-asientos-ida.component.css']
 })
-export class SeleccionAsientosIdaComponent {
+export class SeleccionAsientosIdaComponent implements OnInit{
+  constructor(){}
+  ngOnInit(){}
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }
 
