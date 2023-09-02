@@ -31,7 +31,8 @@ import { EquipajeExtraComponent } from './components/equipaje-extra/equipaje-ext
 
 import { ListadoRegresoComponent } from './components/listado-regreso/listado-regreso.component';
 import { ResumenCompraIdaVueltaComponent } from './components/resumen-compra-ida-vuelta/resumen-compra-ida-vuelta.component';
-
+import { PagoComponent } from './components/pago/pago.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ResumenCompraIdaVueltaComponent } from './components/resumen-compra-ida
     ListadoRegresoComponent,
     ResumenCompraIdaVueltaComponent,
     IngresoDatosComponent,
-    EquipajeExtraComponent
+    EquipajeExtraComponent,
+    PagoComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { ResumenCompraIdaVueltaComponent } from './components/resumen-compra-ida
     FormsModule,
     NgbDatepickerModule, 
     NgbAlertModule, 
+    NgxPayPalModule,
     FormsModule, 
     JsonPipe
   ],

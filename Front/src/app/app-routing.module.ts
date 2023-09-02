@@ -14,6 +14,7 @@ import { ResumenCompraIdaVueltaComponent } from './components/resumen-compra-ida
 import { EquipajeExtraComponent } from './components/equipaje-extra/equipaje-extra.component';
 import { IngresoDatosComponent } from './components/ingreso-datos/ingreso-datos.component';
 import { ListadoRegresoComponent } from './components/listado-regreso/listado-regreso.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 const routes: Routes = [
   { path: 'home', component: InicioComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'resumen-compra-ida-vuelta/:idV/:idR/:p', component: ResumenCompraIdaVueltaComponent },
   { path: 'equipaje-extra', component: EquipajeExtraComponent },
   { path: 'ingreso-datos', component: IngresoDatosComponent },
-  { path: 'listado-regreso', component: ListadoRegresoComponent }
+  { path: 'listado-regreso', component: ListadoRegresoComponent },
+  { path: 'pago', component: PagoComponent}
 ];
 
 @NgModule({
