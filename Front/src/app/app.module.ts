@@ -48,13 +48,12 @@ import { ResumenCompraIdaVueltaComponent } from './components/resumen-compra-ida
     ResumenCompraComponent,
     SeleccionAsientosIdaComponent,
     SeleccionAsientosRegresoComponent,
-
     ResumendevueloidavueltaComponent,
     SeleccionPasajerosComponent,
     ListadoRegresoComponent,
     ResumenCompraIdaVueltaComponent,
-    IngresoDatosComponent
-
+    IngresoDatosComponent,
+    EquipajeExtraComponent
   ],
   imports: [
     BrowserModule,

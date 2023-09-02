@@ -17,6 +17,7 @@ export class ListadoRegresoComponent implements OnInit {
   vuelosR: Vuelo[];
   public rutasI: RutaS;
   public rutasR: RutaS;
+  public params: any;
   public esIV: any;
   constructor(
     private vueloService: VueloService,
@@ -28,23 +29,20 @@ export class ListadoRegresoComponent implements OnInit {
     this.vuelosR = [];
   }
   ngOnInit(): void {
-    this._route.paramMap.subscribe(
-      params => {
-        console.log(params);
-        let idI: any = params.get('idI');
-        let idR: any = params.get('idR');
-        let idVu: any = params.get('idVu')
-        this.pasajeros = params.get('p');
-        this.esIV = params.get('c');
-        this.getRutaR(idR);
-        this.getRutaI(idI);
-        this.getVuelosByIdRuta(idR);
-        this.getVueloById(idVu);
+    this._route.queryParams.subscribe(
+      params=>{
+        this.params = params;
+        this.esIV = this.params.IV;
+        this.pasajeros = this.params.p;
+        this.getRutaR(this.params.rutaR);
+        this.getRutaI(this.params.rutaI);
+        this.getVuelosByIdRuta(this.params.rutaR);
+        this.getVueloById(this.params.idV);
       }
     )
   }
-
-  getVuelosByIdRuta(id: String) {
+  
+  getVuelosByIdRuta(id:String){
     this.vueloService.getVueloByRuta(id).subscribe(
       response => {
         if (response.listaVuelos) {

@@ -1,4 +1,22 @@
-<p>Resumen del vuelo de regreso seleccionado</p>
-<p>necesito que me pases los mismos datos que se pasan en el resumen de vuelo pero del vuelo seleccionado del listado de
-    los vuelos de regreso </p>
-<app-resumen-de-vuelo></app-resumen-de-vuelo>
+<body>
+<h2>Resumen de los vuelos seleccionados</h2> 
+<h3>Vuelo Ida</h3>
+Origen:{{this.rutasI.origen}}
+Destino:{{this.rutasI.destino}}
+Código del vuelo:{{this.vueloI.numeroVuelo}}
+Hora de salida:{{this.vueloI.horaSalida}}:00
+Hora de llegada:{{this.vueloI.horaLlegada}}:00
+Precio:${{this.vueloI.precio}}
+<br>
+
+<br>
+<h3>Vuelo Regreso</h3>
+Origen:{{this.rutasR.origen}}
+Destino:{{this.rutasR.destino}}
+Código del vuelo:{{this.vueloR.numeroVuelo}}
+Hora de salida:{{this.vueloR.horaSalida}}:00
+Hora de llegada:{{this.vueloR.horaLlegada}}:00
+Precio:${{this.vueloR.precio}}
+
+</body>
+

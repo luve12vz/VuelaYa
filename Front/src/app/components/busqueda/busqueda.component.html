@@ -4,13 +4,13 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
 <body>
     <form #vueloForm="ngForm" (ngSubmit)="getVueloRuta()">
         <div class="form-check">
-            <input class="form-check-input" value = "IV" type="radio" name="radioID" 
-            id="flexRadioDisabled" [(ngModel)] = "forma" (change) = "checkRadio()">
+            <input class="form-check-input" value="IV" type="radio" name="radioID" id="flexRadioDisabled"
+                [(ngModel)]="forma" (change)="checkRadio()">
             <label class="form-check-label" for="flexRadioDisabled">
                 Ida y Vuelta
             </label>
-            <input class="form-check-input" value = "I" type="radio" name="radioID" 
-            id="flexRadioCheckedDisabled" [(ngModel)] = "forma" (change) = "checkRadio()">
+            <input class="form-check-input" value="I" type="radio" name="radioID" id="flexRadioCheckedDisabled"
+                [(ngModel)]="forma" (change)="checkRadio()">
             <label class="form-check-label" for="flexRadioCheckedDisabled">
                 Solo Ida
             </label>
@@ -45,9 +45,9 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
             <div class="col-6">
                 <div class="input-group">
                     <input class="form-control2" placeholder="Salida" name="fechaSalida" [(ngModel)]="rutaS.fechaSalida"
-                        ngbDatepicker #d1="ngbDatepicker" [minDate]="today" [maxDate]="maxDate"/>
-                    <button class="btn btn-outline-secondary bi bi-calendar3" name="fechaSalida" (click)="d1.toggle()" type="button"><img
-                            src="../assets/imagenes/calendar.png"></button>
+                        ngbDatepicker #d1="ngbDatepicker" [minDate]="today" [maxDate]="maxDate" />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" name="fechaSalida" (click)="d1.toggle()"
+                        type="button"><img src="../assets/imagenes/calendar.png"></button>
 
                 </div>
             </div>
@@ -56,9 +56,10 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
             <div class="col-6">
                 <div class="input-group">
                     <input class="form-control2" placeholder="Vuelta" name="fechaVuelta" [(ngModel)]="fechaVuelta"
-                        ngbDatepicker #d2="ngbDatepicker" [minDate]="today" [maxDate]="maxDate" [disabled] = "VueltaDisabled"/>
-                    <button class="btn btn-outline-secondary bi bi-calendar3" name="fechaVuelta" (click)="d2.toggle()" type="button" [disabled] = "VueltaDisabled"><img
-                            src="../assets/imagenes/calendar.png"></button>
+                        ngbDatepicker #d2="ngbDatepicker" [minDate]="today" [maxDate]="maxDate"
+                        [disabled]="VueltaDisabled" />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" name="fechaVuelta" (click)="d2.toggle()"
+                        type="button" [disabled]="VueltaDisabled"><img src="../assets/imagenes/calendar.png"></button>
 
                 </div>
             </div>
@@ -68,77 +69,81 @@ varios pop ups o UIs se pueden buscar como implementarlos con bootstrap-->
                         <div class="col-md-6 col-12">
                             <div class="row">
                                 <div class="col-12">
-                                    <div >
+                                    <div>
                                         <div>
                                             <p class="text-dark">Mayores de 65 años</p>
                                         </div>
-                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                        <div class="input-group w-auto align-items-center">
                                             <input type="button" value="-"
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
                                                 data-field="quantity">
-                                            <input type="number" step="1" max="10" value="1" name="quantity"
-                                                class="quantity-field border-0 text-center w-25">
-                                            <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm "
+                                            <input type="number" step="1" max="8" min="1" value="0" name="quantity"
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="mayores65">
+                                            <input type="button" value="+"
+                                                class="button-plus border rounded-circle icon-shape icon-sm "
                                                 data-field="quantity">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div  >
+                                    <div>
                                         <div>
                                             <p class="text-dark">Entre 25 y 65 años</p>
                                         </div>
-                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                        <div class="input-group w-auto align-items-center">
                                             <input type="button" value="-"
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
                                                 data-field="quantity">
-                                            <input type="number" step="1" max="10" value="1" name="quantity"
-                                                class="quantity-field border-0 text-center w-25">
+                                            <input type="number" step="1" max="5" min="1" value="1" name="quantity"
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="entre25y65">
                                             <input type="button" value="+"
-                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                                                data-field="quantity">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div  >
+                                    <div>
                                         <div>
-                                            <p class="text-dark">Entre 2 y 25 años</p>
+                                            <p class="text-dark">Entre 2 y 24 años</p>
                                         </div>
-                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                        <div class="input-group w-auto align-items-center">
                                             <input type="button" value="-"
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
                                                 data-field="quantity">
-                                            <input type="number" step="1" max="10" value="1" name="quantity"
-                                                class="quantity-field border-0 text-center w-25">
+                                            <input type="number" step="1" max="10" min="1" value="1" name="quantity"
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="entre2y24">
                                             <input type="button" value="+"
-                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                                                data-field="quantity">
                                         </div>
-                
+
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div  >
+                                    <div>
                                         <div>
                                             <p class="text-dark">Menores de 2 años</p>
                                         </div>
-                                        <div class="input-group w-auto justify-content-end align-items-center">
+                                        <div class="input-group w-auto align-items-center">
                                             <input type="button" value="-"
                                                 class="button-minus border rounded-circle  icon-shape icon-sm mx-1 lh-0"
                                                 data-field="quantity">
-                                            <input type="number" step="1" max="10" value="1" name="quantity"
-                                                class="quantity-field border-0 text-center w-25">
+                                            <input type="number" step="1" max="10" min="0" value="0" name="quantity"
+                                                class="quantity-field border-0 text-center w-50" [(ngModel)]="menores2">
                                             <input type="button" value="+"
-                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+                                                class="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                                                data-field="quantity">
                                         </div>
-                
-                
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-            </div>
-            <button type="submit" value="Guardar" class="btn btn-primary" [disabled]="!vueloForm.form.valid">Buscar
-                vuelo</button>
+                </div>
+                <button type="submit" value="Guardar" class="btn btn-primary" [disabled]="!vueloForm.form.valid">Buscar
+                    vuelo</button>
 
-        </div>
+            </div>
