@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Vuelo } from 'src/app/models/vuelo';
+import { VueloService } from 'src/app/services/vuelo.service';
 
 @Component({
   selector: 'app-pago',
@@ -20,16 +23,77 @@ export class PagoComponent implements OnInit{
   public showSuccess: boolean = false;
   public showCancel: boolean = false;
   public showError: boolean = false;
-
+  public params: any;
 
   total = 0;
 
   @ViewChild('priceElem', { static: false }) priceElem?: ElementRef;
-
-  constructor() {}
+  esIV: any;
+  pasajeros: any;
+  idVI: any;
+  idVR: any;
+  em: any;
+  e23: any;
+  asientosI: any;
+  asientosR: any;
+  vueloI: any;
+  vueloR: any;
+  constructor(
+    private _route: ActivatedRoute,
+    private vueloService: VueloService) {
+    this.vueloI = new Vuelo("","",0,0,0,0,0,"");
+    this.vueloR = new Vuelo("","",0,0,0,0,0,"");
+  }
 
   ngOnInit(): void {
     this.initConfig('100');
+    this._route.queryParams.subscribe(
+      params=>{
+        this.params = params;
+        this.esIV = this.params.IV;
+        // Esto solo se pasa como un string -> no array
+        this.pasajeros = this.params.p;
+        this.em = this.params.em;
+        this.e23 = this.params.e23;
+        // Transformar un JSON String a un array:
+        // this.pasajeros = JSON.parse(this.params.p);
+        if(this.esIV == "I"){
+          this.idVI = this.params.idVI;
+          this.asientosI = this.params.aI;
+          this.getVueloByIdI(this.idVI);
+          // Transformar un JSON String a un array:
+          // this.asientosI = JSON.parse(this.asientosI);
+        }
+        else{
+          this.idVI = this.params.idVI;
+          this.idVR = this.params.idVR;
+          this.asientosI = this.params.aI;
+          this.asientosR = this.params.aR;
+          this.getVueloByIdI(this.idVI);
+          this.getVueloByIdR(this.idVR);
+        }
+      }
+    )
+  }
+
+  getVueloByIdI(id:String){
+    this.vueloService.getVueloId(id).subscribe(
+      response=>{
+        if(response.vuelo){
+          this.vueloI = response.vuelo;
+        }
+      }
+    )
+  }
+
+  getVueloByIdR(id:String){
+    this.vueloService.getVueloId(id).subscribe(
+      response=>{
+        if(response.vuelo){
+          this.vueloR = response.vuelo;
+        }
+      }
+    )
   }
 
  /* updateTotal() {

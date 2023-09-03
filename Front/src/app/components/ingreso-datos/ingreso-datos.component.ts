@@ -14,6 +14,7 @@ export class IngresoDatosComponent implements OnInit{
   public params: any;
   public esIV: any;
   public pasajeros: any;
+  public pasajerosS: any;
   public idVI: any;
   public isButtonVisible: boolean = true;
   public isButtonVisible2: boolean = true;
@@ -31,8 +32,10 @@ export class IngresoDatosComponent implements OnInit{
         this.esIV = this.params.IV;
         // Esto solo se pasa como un string -> no array
         this.pasajeros = this.params.p;
+        this.pasajerosS = this.params.p;
         // Transformar un JSON String a un array:
         this.pasajeros = JSON.parse(this.params.p);
+        
         if(this.esIV == "I"){
           this.isButtonVisible = false;
           this.idVI = this.params.idVI;

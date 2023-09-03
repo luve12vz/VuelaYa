@@ -25,13 +25,13 @@
   </form>
   <div [hidden]="isButtonVisible">
     <button class="boton-rosado" [routerLink]="['/resumen']"
-      [queryParams]="{idVI: idVI, IV: esIV, p: pasajeros}">Siguiente pagina</button>
+      [queryParams]="{idVI: idVI, IV: esIV, p: pasajerosS}">Siguiente pagina</button>
   </div>
   <div [hidden]="isButtonVisible2" *ngIf="esIV === 'I'">
     <button class="boton-rosado" [routerLink]="null">Siguiente pagina</button>
   </div>
   <div [hidden]="isButtonVisible2" *ngIf="esIV === 'IV'">
     <button class="boton-rosado" [routerLink]="['/resumen-de-vuelo-ida-vuelta']"
-      [queryParams]="{idVR: idVR, idVI: idVI, IV: esIV, p: pasajeros}">Siguiente pagina</button>
+      [queryParams]="{idVR: idVR, idVI: idVI, IV: esIV, p: pasajerosS}">Siguiente pagina</button>
   </div>
 </div>

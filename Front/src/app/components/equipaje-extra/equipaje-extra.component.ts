@@ -21,6 +21,8 @@ export class EquipajeExtraComponent implements OnInit {
   public idVR: string = "";
   public asientosI: string[] = [];
   public asientosR: string[] = [];
+  public asientosIS: any;
+  public asientosRS: any;
   public sumaPasajeros: number = 0;
   mostrarAsientosIda = true;
   mostrarAsientosRegreso = true;
@@ -37,7 +39,7 @@ export class EquipajeExtraComponent implements OnInit {
         this.esIV = this.params.IV;
         if (this.esIV == "I") {
           this.isButtonVisible = false;
-          this.idVI = this.params.idV;
+          this.idVI = this.params.idVI;
         }
         else {
           this.isButtonVisible2 = false;
@@ -58,11 +60,13 @@ export class EquipajeExtraComponent implements OnInit {
 
   onCheckboxesChangeI(checkboxes: string[]) {
     this.asientosI = checkboxes;
+    this.asientosIS = JSON.stringify(this.asientosI);
     console.log('Datos recibidos del componente asientos ida:', this.asientosI);
   }
 
   onCheckboxesChangeR(checkboxes: string[]) {
     this.asientosR = checkboxes;
+    this.asientosRS = JSON.stringify(this.asientosR);
     console.log('Datos recibidos del componente asientos regreso:', this.asientosR);
   }
 
