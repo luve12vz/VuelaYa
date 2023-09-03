@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
-
+import { HttpClient } from '@angular/common/http';
+import { VueloService } from 'src/app/services/vuelo.service';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Vuelo } from 'src/app/models/vuelo';
@@ -12,7 +14,7 @@ import { VueloService } from 'src/app/services/vuelo.service';
   styleUrls: ['./pago.component.css']
 })
 export class PagoComponent implements OnInit{
-  public defaultPrice: string = '9.99';
+
   public payPalConfig?: IPayPalConfig;
 
   public customerName = '';
@@ -164,6 +166,16 @@ export class PagoComponent implements OnInit{
           'onClientAuthorization - you should probably inform your server about completed transaction at this point',
           data
         );
+        const customerInfo = this.getCustomerInfo();
+        console.log('Información del cliente que se enviará:', customerInfo);
+        this._vueloservice.postEmail(customerInfo).subscribe(
+          (response) => {
+            console.log('Correo enviado:', response);
+          },
+          (error) => {
+            console.log('Error:', error);
+          }
+        );
         this.showSuccess = true;
       },
       onCancel: (data: any, actions: any) => {
@@ -181,6 +193,14 @@ export class PagoComponent implements OnInit{
       onInit: (data: any, actions: any) => {
         console.log('onInit', data, actions);
       },
+    };
+  }
+  private getCustomerInfo() {
+    return {
+      name: this.customerName,
+      email: this.customerEmail,
+      address: this.customerAddress,
+      cedula: this.customerCedula
     };
   }
 

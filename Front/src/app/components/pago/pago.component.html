@@ -6,49 +6,55 @@
 
 </body>
 <app-footer></app-footer>-->
-<body>
-<div class="container">
-    <div class="clearfix"></div>
-    <h2>Proceso de pago</h2>
-    <br />
-    <div class="row">
-      <div class="col-sm-6">
-      <!--Resumen de compra por ejemplo-->
-      </div>
-      <div class="col-sm-6">
-        <h3>Datos de facturación</h3>
-        <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" class="form-control" id="name" [(ngModel)]="customerName" />
-        </div>
-        <div class="form-group">
-            <label for="name">Cédula o Pasaporte</label>
-            <input type="text" class="form-control" id="cedula" [(ngModel)]="customerCedula" />
-          </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" [(ngModel)]="customerEmail" />
-        </div>
-        <div class="form-group">
-          <label for="address">Dirección</label>
-          <textarea class="form-control" id="address" rows="3" [(ngModel)]="customerAddress"></textarea>
-        </div>
-    
-        <br><br>
-  
-        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
 
-        <p *ngIf="showSuccess" class="text-success mt-3">
-          Pago exitoso! Gracias por su compra.
-        </p>
-        <p *ngIf="showCancel" class="text-error mt-3">
-            Pago cancelado!
-          </p>
-        <p *ngIf="showError" class="text-error mt-3">
-          Pago Fallido! .
-        </p>
-      </div>
+<body>
+    <div class="container">
+        <div class="clearfix"></div>
+        <h2>Proceso de pago</h2>
+        <br />
+        <div class="row">
+            <div class="col-sm-6">
+                <!--Resumen de compra por ejemplo-->
+            </div>
+            <div class="col-sm-6">
+                <h3>Datos de facturación</h3>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="customerName" />
+                </div>
+                <div class="form-group">
+                    <label for="name">Cédula o Pasaporte</label>
+                    <input type="text" class="form-control" id="cedula" [(ngModel)]="customerCedula" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="customerEmail"
+                        #emailField="ngModel" />
+                    <div *ngIf="emailField.invalid && emailField.touched" class="text-danger">
+                        Por favor, introduce un correo electrónico válido.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Dirección</label>
+                    <textarea class="form-control" id="address" rows="3" [(ngModel)]="customerAddress"></textarea>
+                </div>
+
+                <br><br>
+
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
+                <p *ngIf="showSuccess" class="text-success mt-3">
+                    Pago exitoso! Gracias por su compra. Se ha enviado la factura a su correo electrónico
+                </p>
+                <p *ngIf="showCancel" class="text-error mt-3">
+                    Pago cancelado!
+                </p>
+                <p *ngIf="showError" class="text-error mt-3">
+                    Pago Fallido! .
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 <app-footer></app-footer>

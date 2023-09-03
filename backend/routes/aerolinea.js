@@ -20,4 +20,6 @@ router.get('/lista-vuelos/:idRuta', AerolineaController.getVueloByRutaId);
 router.get('/ruta/:id', AerolineaController.getRutaById);
 //obtener vuelo por id
 router.get('/vuelo/:id', AerolineaController.getVueloById);
+//enviar correo de factura
+router.post('/pago', AerolineaController.postEnviarCorreo);
 module.exports = router;

@@ -50,4 +50,8 @@ export class VueloService{
         let headers=new HttpHeaders().set('Content-Type','application/json');
         return this._http.get(this.url+'vuelo/'+id,{headers:headers});
     }
+    postEmail(customerInfo: any): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.post(this.url + 'pago/', customerInfo, { headers: headers });
+    }
 } 
