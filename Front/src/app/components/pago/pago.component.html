@@ -22,6 +22,10 @@
           <input type="text" class="form-control" id="name" [(ngModel)]="customerName" />
         </div>
         <div class="form-group">
+            <label for="name">Cédula o Pasaporte</label>
+            <input type="text" class="form-control" id="cedula" [(ngModel)]="customerCedula" />
+          </div>
+        <div class="form-group">
           <label for="email">Email</label>
           <input type="email" class="form-control" id="email" [(ngModel)]="customerEmail" />
         </div>
@@ -30,6 +34,7 @@
           <textarea class="form-control" id="address" rows="3" [(ngModel)]="customerAddress"></textarea>
         </div>
     
+        <br><br>
   
         <ngx-paypal [config]="payPalConfig"></ngx-paypal>
 

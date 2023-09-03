@@ -15,18 +15,13 @@ export class PagoComponent implements OnInit{
   public customerName = '';
   public customerEmail = '';
   public customerAddress = '';
+  public customerCedula = '';
   public selectedPaymentMethod = '';
-  public cart: any[] = [];
   public showSuccess: boolean = false;
   public showCancel: boolean = false;
   public showError: boolean = false;
 
-  items: {
-    name: any;
-    quantity: any;
-    category: string;
-    unit_amount: { currency_code: string; value: any };
-  }[] = [];
+
   total = 0;
 
   @ViewChild('priceElem', { static: false }) priceElem?: ElementRef;
@@ -37,7 +32,7 @@ export class PagoComponent implements OnInit{
     this.initConfig('100');
   }
 
-  updateTotal() {
+ /* updateTotal() {
     this.cart.forEach((cartItem) => {
       this.items.push({
         name: cartItem.name,
@@ -51,7 +46,7 @@ export class PagoComponent implements OnInit{
       this.total += parseFloat(cartItem.price) * cartItem.quantity;
     });
     this.initConfig(this.total + '');
-  }
+  }*/
 
   private initConfig(price: string): void {
     this.payPalConfig = {
@@ -71,8 +66,7 @@ export class PagoComponent implements OnInit{
                     value: price,
                   },
                 },
-              },
-              items: this.items,
+              }
             },
           ],
         },
@@ -127,7 +121,6 @@ export class PagoComponent implements OnInit{
   }
 
   private resetStatus(): void {
-    this.items = [];
     this.total = 0;
     this.showError = false;
     this.showSuccess = false;
