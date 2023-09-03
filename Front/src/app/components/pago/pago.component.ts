@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Vuelo } from 'src/app/models/vuelo';
-import { VueloService } from 'src/app/services/vuelo.service';
 
 @Component({
   selector: 'app-pago',
@@ -168,7 +167,7 @@ export class PagoComponent implements OnInit{
         );
         const customerInfo = this.getCustomerInfo();
         console.log('Información del cliente que se enviará:', customerInfo);
-        this._vueloservice.postEmail(customerInfo).subscribe(
+        this.vueloService.postEmail(customerInfo).subscribe(
           (response) => {
             console.log('Correo enviado:', response);
           },
