@@ -45,22 +45,19 @@ export class IngresoDatosComponent implements OnInit{
           this.idVI = this.params.idVI;
           this.idVR = this.params.idVR;
         }
+        if (this.pasajeros[0] > 0 || this.pasajeros[3] > 0 || this.pasajeros[2] > 0) {
+          this.mostrarFechaNacimiento = true;
+        } else {
+          this.mostrarFechaNacimiento = false;
+        }
       }
     )
   }
   nombre: string = '';
   apellido: string = '';
   fechaNacimiento: string = '';
-  
-  get esMenor(): boolean {
-   
-    return this.pasajeros[0]>1; // Cambia esto según tu lógica
-  }
-
-  get esMayorDe65(): boolean {
-    // Lógica para determinar si es mayor de 65 años
-    // Puedes usar la fecha de nacimiento para calcularlo
-    return this.pasajeros[2]>1; // Cambia esto según tu lógica
+  getRange(n: number): number[] {
+    return Array.from({ length: n }, (_, index) => index);
   }
 }
 
