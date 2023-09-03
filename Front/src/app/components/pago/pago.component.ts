@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
-
+import { HttpClient } from '@angular/common/http';
+import { VueloService } from 'src/app/services/vuelo.service';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -9,7 +11,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./pago.component.css']
 })
 export class PagoComponent implements OnInit{
-  public defaultPrice: string = '9.99';
+
   public payPalConfig?: IPayPalConfig;
 
   public customerName = '';
@@ -26,27 +28,14 @@ export class PagoComponent implements OnInit{
 
   @ViewChild('priceElem', { static: false }) priceElem?: ElementRef;
 
-  constructor() {}
+  constructor(private _vueloservice: VueloService) {
+    
+  }
 
   ngOnInit(): void {
     this.initConfig('100');
   }
 
- /* updateTotal() {
-    this.cart.forEach((cartItem) => {
-      this.items.push({
-        name: cartItem.name,
-        quantity: cartItem.quantity,
-        category: 'DIGITAL_GOODS',
-        unit_amount: {
-          currency_code: 'USD',
-          value: cartItem.price,
-        },
-      });
-      this.total += parseFloat(cartItem.price) * cartItem.quantity;
-    });
-    this.initConfig(this.total + '');
-  }*/
 
   private initConfig(price: string): void {
     this.payPalConfig = {
@@ -100,6 +89,16 @@ export class PagoComponent implements OnInit{
           'onClientAuthorization - you should probably inform your server about completed transaction at this point',
           data
         );
+        const customerInfo = this.getCustomerInfo();
+        console.log('Información del cliente que se enviará:', customerInfo);
+        this._vueloservice.postEmail(customerInfo).subscribe(
+          (response) => {
+            console.log('Correo enviado:', response);
+          },
+          (error) => {
+            console.log('Error:', error);
+          }
+        );
         this.showSuccess = true;
       },
       onCancel: (data: any, actions: any) => {
@@ -117,6 +116,14 @@ export class PagoComponent implements OnInit{
       onInit: (data: any, actions: any) => {
         console.log('onInit', data, actions);
       },
+    };
+  }
+  private getCustomerInfo() {
+    return {
+      name: this.customerName,
+      email: this.customerEmail,
+      address: this.customerAddress,
+      cedula: this.customerCedula
     };
   }
 
