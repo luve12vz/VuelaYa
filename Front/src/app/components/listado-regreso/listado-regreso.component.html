@@ -38,7 +38,7 @@
         <ul>
             <li *ngFor="let vuelo of vuelosR" class="vuelo-item">
                 <div>
-                    <button class="boton-rosado" name="ida" [routerLink]="['/equipaje-extra']"
+                    <button class="boton-rosado" name="ida" [routerLink]="['/ingreso-datos']"
                         [queryParams]="{idVR: vuelo._id, idVI: vueloI._id, IV: esIV, p: pasajeros}">Seleccionar</button>
                 </div>
                 <br>

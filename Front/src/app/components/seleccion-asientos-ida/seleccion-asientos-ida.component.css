@@ -78,7 +78,7 @@ ol {
     margin: 0;
 }
 
-.row {}
+/* .row {} */
 
 .seats {
     display: flex;
@@ -132,6 +132,14 @@ ol {
                 cursor: not-allowed;
             }
         }
+    }
+
+    .active {
+        background-color: green; /* Estilo activado */
+    }
+      
+    .inactive {
+        background-color: red; /* Estilo desactivado */
     }
 
     label {

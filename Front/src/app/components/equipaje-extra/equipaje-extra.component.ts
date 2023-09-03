@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./equipaje-extra.component.css']
 })
 export class EquipajeExtraComponent implements OnInit {
+  public eventListenersAttached = false;
   public params: any;
   extraCountmano: number = 0;
   extraCount23kg: number = 0;
@@ -15,9 +16,14 @@ export class EquipajeExtraComponent implements OnInit {
   public esIV: String = "";
   public isButtonVisible = true;
   public isButtonVisible2 = true;
-  public pasajeros: Number[] = [];
+  public pasajeros: any;
   public idVI: string = "";
   public idVR: string = "";
+  public asientosI: string[] = [];
+  public asientosR: string[] = [];
+  public sumaPasajeros: number = 0;
+  mostrarAsientosIda = true;
+  mostrarAsientosRegreso = true;
   constructor(private route: ActivatedRoute) {
 
   }
@@ -26,6 +32,8 @@ export class EquipajeExtraComponent implements OnInit {
       params => {
         this.params = params;
         this.pasajeros = this.params.p;
+        this.sumaPasajeros = JSON.parse(this.pasajeros).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        console.log(this.sumaPasajeros);
         this.esIV = this.params.IV;
         if (this.esIV == "I") {
           this.isButtonVisible = false;
@@ -36,11 +44,28 @@ export class EquipajeExtraComponent implements OnInit {
           this.idVI = this.params.idVI;
           this.idVR = this.params.idVR;
         }
-
       }
     )
-
   }
+
+  toggleAsientosIda(): void {
+    this.mostrarAsientosIda = !this.mostrarAsientosIda;
+  }
+
+  toggleAsientosRegreso(): void {
+    this.mostrarAsientosRegreso = !this.mostrarAsientosRegreso;
+  }
+
+  onCheckboxesChangeI(checkboxes: string[]) {
+    this.asientosI = checkboxes;
+    console.log('Datos recibidos del componente asientos ida:', this.asientosI);
+  }
+
+  onCheckboxesChangeR(checkboxes: string[]) {
+    this.asientosR = checkboxes;
+    console.log('Datos recibidos del componente asientos regreso:', this.asientosR);
+  }
+
   incrementExtraMano() {
     if (this.extraCountmano < this.maxMaletas) {
       this.extraCountmano++;
@@ -64,5 +89,4 @@ export class EquipajeExtraComponent implements OnInit {
       this.extraCount23kg--;
     }
   }
-
 }
