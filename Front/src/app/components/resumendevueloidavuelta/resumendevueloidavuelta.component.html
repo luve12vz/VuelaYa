@@ -18,5 +18,6 @@ Hora de salida:{{this.vueloR.horaSalida}}:00
 Hora de llegada:{{this.vueloR.horaLlegada}}:00
 Precio:${{this.vueloR.precio}}
 
+<button [routerLink]="['/equipaje-extra']" [queryParams]= "{idVR: idVR, idVI: idVI, IV: esIV, p: pasajeros}" >Siguiente pagina</button>
 </body>
 

@@ -18,9 +18,9 @@ export class ResumendevueloidavueltaComponent implements OnInit{
   public rutasI: RutaS;
   public rutasR: RutaS;
   public params: any;
-  public em: any;
-  public e23: any;
-  
+  public idVI: any;
+  public idVR: any;
+  public esIV: any;
   constructor(
     private vueloService: VueloService,
     private _route: ActivatedRoute)
@@ -38,13 +38,12 @@ export class ResumendevueloidavueltaComponent implements OnInit{
     this._route.queryParams.subscribe(
       params => {
         this.params = params;
-        let idVI:any = this.params.idVI;
-        let idVR:any = this.params.idVR;
+        this.idVI = this.params.idVI;
+        this.idVR = this.params.idVR;
+        this.esIV = this.params.IV;
         this.pasajeros = this.params.p;
-        this.em = this.params.em;
-        this.e23 = this.params.e23;
-        this.getVueloById(idVI);
-        this.getVueloById2(idVR);
+        this.getVueloById(this.idVI);
+        this.getVueloById2(this.idVR);
       }
     )
   }

@@ -7,7 +7,7 @@
         <ul>
             <li *ngFor="let vuelo of vuelos" class="vuelo-item">
                 <div [hidden]="isButtonVisible">
-                    <button class="boton-rosado" name="ida" [routerLink]="['/equipaje-extra']" [queryParams]="{idV: vuelo._id, IV: esIV, p: pasajeros}">Seleccionar</button>
+                    <button class="boton-rosado" name="ida" [routerLink]="['/ingreso-datos']" [queryParams]="{idVI: vuelo._id, IV: esIV, p: pasajeros}">Seleccionar</button>
                 </div>
                 <div [hidden]="isButtonVisible2" *ngIf="esIV === 'I'">
                     <button class="boton-rosado" name="regreso" [routerLink]="null" >Seleccionar</button>

@@ -17,8 +17,6 @@ export class ResumenDeVueloComponent implements OnInit{
   public pasajeros:any;
   public rutas: RutaS;
   public params: any;
-  public em: any;
-  public e23: any;
   
   constructor(
     private vueloService: VueloService,
@@ -37,8 +35,6 @@ export class ResumenDeVueloComponent implements OnInit{
         this.params = params;
         let idVI:any = this.params.idVI;
         this.pasajeros = this.params.p;
-        this.em = this.params.em;
-        this.e23 = this.params.e23;
         this.getVueloById(idVI);
       }
     )

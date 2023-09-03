@@ -1,6 +1,7 @@
-<h1>Seleccion de asientos Ida</h1>
+<h5>Seleccion de asientos Ida</h5>
 <hr />
-<button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup()">Show Data
+<!-- Se desactiva ya que escogio la forma aleatoria -->
+<button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup()" [disabled] = "isRandomActive">Show Data
 </button>
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
   <div class="modal-dialog" role="document">
@@ -20,8 +21,8 @@
           <div class="exit exit--front fuselage">
 
           </div>
-          <ol class="cabin fuselage">
-            <li class="row row--1">
+          <ol class="cabin fuselage" #seatsContainer>
+            <!-- <li class="row row--1">
               <ol class="seats" type="A">
                 <li class="seat">
                   <input type="checkbox" id="1A" />
@@ -300,6 +301,14 @@
                   <label for="10F">10F</label>
                 </li>
               </ol>
+            </li> -->
+            <li *ngFor="let row of rows" class="row row--{{ row.rowNumber }}">
+              <ol class="seats" type="A">
+                <li *ngFor="let seat of row.seats" class="seat">
+                  <input type="checkbox" [id]="seat.id" [name]="seat.id" (change)="handleCheckboxChange($event)" [disabled]="selected >= maxSelectedCheckboxes && !seat.selected || disabledCheckboxes.includes(seat.id)"/>
+                  <label [for]="seat.id">{{ seat.id }}</label>
+                </li>
+              </ol>
             </li>
           </ol>
           <div class="exit exit--back fuselage">
@@ -308,10 +317,15 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="closePopup()">
-          Close
+        <button type="button" class="btn btn-danger" (click)="closePopup()" >
+          Aceptar selecciones
         </button>
+        
       </div>
     </div>
   </div>
 </div>
+<!-- Se desactiva el button de seleccionar vuelo -->
+<button type="button" (click)="toggleRandom()" [ngClass]="{'btn btn-success': isRandomActive, 'btn btn-danger': !isRandomActive}">
+  Seleccion Aleatoria
+</button>
