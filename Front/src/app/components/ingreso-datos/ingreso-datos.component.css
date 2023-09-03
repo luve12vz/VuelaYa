@@ -1,0 +1,111 @@
+@font-face {
+    font-family: "WebSymbolsRegulars";
+    src: ('fonts/WebSymbols-Regular.otf');
+}
+
+.icon {
+    font-family: WebSymbolsRegulars;
+}
+
+@font-face {
+    font-family: "Asap";
+    src: ('fonts/Asap-MediumItalic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Hug";
+    /*src: url('fonts/First.ttf');
+    ../assets/fonts/Asap-MediumItalic.ttf*/
+    src: ('fonts/Hugshack.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gro";
+    src: ('fonts/ground.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 30px;
+    font-family: 'Asap';
+    border: 2px #0073ff;
+    background-color: #c8cbbc7e;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 5px;
+    border-bottom: 1px solid #0073ff;
+    cursor: pointer;
+    width: 30%;
+
+}
+
+h2 {
+    color: #f8770f;
+    font-size: 17px;
+    font-family: 'Hug';
+    margin: 5px;
+}
+
+
+/* Estilo para el formulario */
+form {
+    color: #28a4e6;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Estilo para los elementos de formulario dentro del form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Estilo para el botón de enviar */
+.btn-primary {
+    font-family: 'Asap';
+    border-radius: 20px;
+    background-color: #28a4e6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de siguiente página */
+.boton {
+    margin: 10px;
+    font-family: 'Asap';
+    border-radius: 20px;
+    border: 3px solid #96bb0d;
+    background-color: #95bb0da3;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    float: right;
+}
+
+/* Estilo para el botón de siguiente página específico */
+.boton-esIV {
+    background-color: #f8770f;
+    /* Tomate */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de siguiente página con IV */
+.boton-con-IV {
+    background-color: #96bb0d;
+    /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
