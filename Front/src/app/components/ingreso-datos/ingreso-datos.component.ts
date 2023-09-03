@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
 import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-ingreso-datos',
   templateUrl: './ingreso-datos.component.html',
@@ -18,7 +19,7 @@ export class IngresoDatosComponent implements OnInit{
   public isButtonVisible2: boolean = true;
   public rutaI: any;
   public idVR: any;
-
+  public mostrarFechaNacimiento: boolean = false;
   constructor(
     private _route: ActivatedRoute)
   {
@@ -31,7 +32,7 @@ export class IngresoDatosComponent implements OnInit{
         // Esto solo se pasa como un string -> no array
         this.pasajeros = this.params.p;
         // Transformar un JSON String a un array:
-        // this.pasajeros = JSON.parse(this.params.p);
+        this.pasajeros = JSON.parse(this.params.p);
         if(this.esIV == "I"){
           this.isButtonVisible = false;
           this.idVI = this.params.idVI;
@@ -49,15 +50,14 @@ export class IngresoDatosComponent implements OnInit{
   fechaNacimiento: string = '';
   
   get esMenor(): boolean {
-    // Lógica para determinar si es menor de edad (menor de 18 años)
-    // Puedes usar la fecha de nacimiento para calcularlo
-    return false; // Cambia esto según tu lógica
+   
+    return this.pasajeros[0]>1; // Cambia esto según tu lógica
   }
 
   get esMayorDe65(): boolean {
     // Lógica para determinar si es mayor de 65 años
     // Puedes usar la fecha de nacimiento para calcularlo
-    return false; // Cambia esto según tu lógica
+    return this.pasajeros[2]>1; // Cambia esto según tu lógica
   }
 }
 

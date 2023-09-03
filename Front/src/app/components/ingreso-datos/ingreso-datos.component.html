@@ -1,30 +1,37 @@
 <div class="container mt-5">
-<h2>Formulario de Registro</h2>
+  {{this.pasajeros[0]}}
+  {{this.pasajeros[1]}}
+  {{this.pasajeros[2]}}
+  {{this.pasajeros[3]}}
+  <h2>Formulario de Registro</h2>
   <form>
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input type="text" class="form-control" id="nombre"  [(ngModel)]="nombre" name="nombre">
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre">
     </div>
     <div class="form-group">
       <label for="apellido">Apellido:</label>
       <input type="text" class="form-control" id="apellido" [(ngModel)]="apellido" name="apellido">
     </div>
-    <div *ngIf="esMenor || esMayorDe65" class="form-group">
+    <div *ngIf="esMenor || this.pasajeros[2]>1 || this.pasajeros[3]>1" class="form-group">
       <label for="fechaNacimiento">Fecha de Nacimiento:</label>
       <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="fechaNacimiento" name="fechaNacimiento">
+    </div>
+    <div *ngIf="mostrarFechaNacimiento">
+      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+      <input type="text" id="fechaNacimiento" [(ngModel)]="fechaNacimiento" name="fechaNacimiento">
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
   <div [hidden]="isButtonVisible">
-    <button class="boton-rosado" [routerLink]="['/resumen']" [queryParams]="{idVI: idVI, IV: esIV, p: pasajeros}">Siguiente pagina</button>
+    <button class="boton-rosado" [routerLink]="['/resumen']"
+      [queryParams]="{idVI: idVI, IV: esIV, p: pasajeros}">Siguiente pagina</button>
   </div>
   <div [hidden]="isButtonVisible2" *ngIf="esIV === 'I'">
-      <button class="boton-rosado" [routerLink]="null" >Siguiente pagina</button>
+    <button class="boton-rosado" [routerLink]="null">Siguiente pagina</button>
   </div>
   <div [hidden]="isButtonVisible2" *ngIf="esIV === 'IV'">
-      <button class="boton-rosado" [routerLink]="['/resumen-de-vuelo-ida-vuelta']" [queryParams]= "{idVR: idVR, idVI: idVI, IV: esIV, p: pasajeros}" >Siguiente pagina</button>
+    <button class="boton-rosado" [routerLink]="['/resumen-de-vuelo-ida-vuelta']"
+      [queryParams]="{idVR: idVR, idVI: idVI, IV: esIV, p: pasajeros}">Siguiente pagina</button>
   </div>
 </div>
-
-
-
