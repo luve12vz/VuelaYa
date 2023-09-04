@@ -29,7 +29,7 @@
                 <app-seleccion-asientos-ida (emitArrayAsientos)="onCheckboxesChangeI($event)"
                     [maxSelectedCheckboxes]="sumaPasajeros"></app-seleccion-asientos-ida>
                 <button class="boton-rosado" name="ida" [routerLink]="['/pago']"
-                    [queryParams]="{idVI: idVI, p: pasajeros, IV: esIV, em: extraCountmano, e23: extraCount23kg, aI: asientosIS}"
+                    [queryParams]="{idVI: idVI, p: pasajeros, IV: esIV, em: extraCountmano, e23: extraCount23kg, aI: asientosIS, d: dataPasajeros}"
                     [disabled]="asientosI.length === 0 || asientosI.length !== sumaPasajeros">Siguiente pagina</button>
             </div>
             <div [hidden]="isButtonVisible2" *ngIf="esIV === 'IV'">
@@ -38,7 +38,7 @@
                 <app-seleccion-asientos-regreso (emitArrayAsientosR)="onCheckboxesChangeR($event)"
                     [maxSelectedCheckboxes]="sumaPasajeros"></app-seleccion-asientos-regreso>
                 <button class="boton-rosado" name="regreso" [routerLink]="['/pago']"
-                    [queryParams]="{idVI: idVI, idVR: idVR, IV: esIV, p: pasajeros, em: extraCountmano, e23: extraCount23kg, aI: asientosIS, aR: asientosRS}"
+                    [queryParams]="{idVI: idVI, idVR: idVR, IV: esIV, p: pasajeros, em: extraCountmano, e23: extraCount23kg, aI: asientosIS, aR: asientosRS, d: dataPasajeros}"
                     [disabled]="(asientosR.length === 0 || asientosI.length === 0) || (asientosI.length !== sumaPasajeros || asientosR.length !== sumaPasajeros)">Siguiente
                     pagina</button>
             </div>

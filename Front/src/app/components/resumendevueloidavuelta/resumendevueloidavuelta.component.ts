@@ -21,6 +21,7 @@ export class ResumendevueloidavueltaComponent implements OnInit{
   public idVI: any;
   public idVR: any;
   public esIV: any;
+  public dataPasajeros: any;
   constructor(
     private vueloService: VueloService,
     private _route: ActivatedRoute)
@@ -42,6 +43,7 @@ export class ResumendevueloidavueltaComponent implements OnInit{
         this.idVR = this.params.idVR;
         this.esIV = this.params.IV;
         this.pasajeros = this.params.p;
+        this.dataPasajeros = this.params.d;
         this.getVueloById(this.idVI);
         this.getVueloById2(this.idVR);
       }

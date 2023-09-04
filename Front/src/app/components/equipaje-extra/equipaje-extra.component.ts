@@ -24,6 +24,7 @@ export class EquipajeExtraComponent implements OnInit {
   public asientosIS: any;
   public asientosRS: any;
   public sumaPasajeros: number = 0;
+  public dataPasajeros: any;
   mostrarAsientosIda = true;
   mostrarAsientosRegreso = true;
   constructor(private route: ActivatedRoute) {
@@ -34,6 +35,8 @@ export class EquipajeExtraComponent implements OnInit {
       params => {
         this.params = params;
         this.pasajeros = this.params.p;
+        // al igual que antes para los pasajeros, usar JSON.parse para transformar en un array
+        this.dataPasajeros = this.params.d;
         this.sumaPasajeros = JSON.parse(this.pasajeros).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         console.log(this.sumaPasajeros);
         this.esIV = this.params.IV;

@@ -16,7 +16,7 @@ export class ResumenDeVueloComponent implements OnInit{
   public pasajeros:any;
   public rutas: RutaS;
   public params: any;
-  
+  public dataPasajeros: any;
   constructor(
     private vueloService: VueloService,
     private _route: ActivatedRoute)
@@ -34,6 +34,7 @@ export class ResumenDeVueloComponent implements OnInit{
         this.params = params;
         let idVI:any = this.params.idVI;
         this.pasajeros = this.params.p;
+        this.dataPasajeros = this.params.d;
         this.getVueloById(idVI);
       }
     )

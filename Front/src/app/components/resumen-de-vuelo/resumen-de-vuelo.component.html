@@ -13,7 +13,7 @@
         <span class="vueloElegido">Precio: ${{vuelo.precio}}</span>
 
     </div>
-    <button class="boton-rosado" [routerLink]="['/equipaje-extra']" [queryParams]="{idVI: params.idVI, IV: params.IV, p: pasajeros}">Seleccionar</button>
+    <button class="boton-rosado" [routerLink]="['/equipaje-extra']" [queryParams]="{idVI: params.idVI, IV: params.IV, p: pasajeros, d: dataPasajeros}">Seleccionar</button>
     <div class="clearfix"></div>
 </body>
 <app-footer></app-footer>
