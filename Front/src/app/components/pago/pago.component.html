@@ -1,16 +1,8 @@
-<!--<body>
-    <div class="clearfix"></div>
-    <h2>Proceso de pago</h2>
-
-    <div class="clearfix"></div>
-
-</body>
-<app-footer></app-footer>-->
-
 <body>
     <div class="container">
         <div class="clearfix"></div>
-        <h2>Proceso de pago</h2>
+        <h2>Proceso de pago <img src="../assets/imagenes/pa.png" width="60px" height="70px"
+            alt="compra"></h2>
         <br />
         <div class="row">
             <div class="col-sm-6">
@@ -34,16 +26,12 @@
                         Por favor, introduce un correo electrónico válido.
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="address">Dirección</label>
                     <textarea class="form-control" id="address" rows="3" [(ngModel)]="customerAddress"></textarea>
                 </div>
-
                 <br><br>
-
                 <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-
                 <p *ngIf="showSuccess" class="text-success mt-3">
                     Pago exitoso! Gracias por su compra. Se ha enviado la factura a su correo electrónico
                 </p>

@@ -1,0 +1,44 @@
+/* Estilos generales */
+body {
+    background-image: ('../assets/imagenes/despegue.gif');
+    margin: 20px;
+    padding: 10px;
+    font-family: 'Asap';
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Estilos para el título amarillo */
+h2 {
+    color: #96bb0d;
+    margin: 30px;
+    font-family: 'Hug';
+    margin-bottom: 0px;
+}
+
+/* Estilos para el subtítulo celeste */
+h3 {
+    color: #28a4e6;
+    font-family: 'Hug';
+    margin: 10px;
+    margin-left: 30px;
+}
+
+
+/* Estilos para los elementos de vuelo */
+.container{
+    font-family: 'Asap';
+    border: 2px #0073ff;
+    background-color: #c8cbbc7e;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #0073ff;
+}
+.col-sm-6{
+    margin-top: -90px;
+    flex: 0 0 auto;
+    width: 45%;
+}

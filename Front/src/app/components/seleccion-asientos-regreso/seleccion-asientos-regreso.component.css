@@ -49,10 +49,10 @@ html {
         font-size: 14px;
         line-height: 18px;
         padding: 0px 2px;
-        font-family: "Arial Narrow", Arial, sans-serif;
+        font-family: 'Asap';
         display: block;
         position: absolute;
-        background: green;
+        background: #f8770f;
         color: white;
         top: 50%;
         transform: translate(0, -50%);
@@ -78,7 +78,10 @@ ol {
     margin: 0;
 }
 
-/* .row {} */
+.row {
+    --bs-gutter-x: 0rem;
+    --bs-gutter-y: 0;
+}
 
 .seats {
     display: flex;
@@ -90,7 +93,7 @@ ol {
 .seat {
     display: flex;
     flex: 0 0 14.28571428571429%;
-    padding: 5px;
+    padding: 2px;
     position: relative;
 
     &:nth-child(3) {
@@ -134,6 +137,16 @@ ol {
         }
     }
 
+    .active {
+        background-color: green;
+        /* Estilo activado */
+    }
+
+    .inactive {
+        background-color: red;
+        /* Estilo desactivado */
+    }
+
     label {
         display: block;
         position: relative;
@@ -142,8 +155,7 @@ ol {
         font-size: 14px;
         font-weight: bold;
         line-height: 1.5rem;
-        padding: 4px 0;
-        background: #f42536;
+        padding: 2px 0;
         border-radius: 5px;
         animation-duration: 300ms;
         animation-fill-mode: both;
@@ -156,13 +168,13 @@ ol {
             top: 1px;
             left: 50%;
             transform: translate(-50%, 0%);
-            background: rgba(255, 255, 255, 0.4);
+            background: rgb(255, 0, 0);
             border-radius: 3px;
         }
 
         &:hover {
             cursor: pointer;
-            box-shadow: 0 0 0px 2px #5c6aff;
+            box-shadow: 0 0 0px 2px #00ff48;
         }
     }
 }
@@ -246,6 +258,14 @@ ol {
     animation-name: rubberBand;
 }
 
+h2 {
+    font-family: 'Hug';
+    margin: 15px;
+    font-size: 12px;
+    text-align: center;
+    color: #fed809;
+}
+
 h5 {
     font-family: 'Hug';
     margin: 15px;
@@ -262,6 +282,7 @@ h5 {
     align-items: center;
     padding: 10px 20px;
     cursor: pointer;
+    border: none;
 }
 
 .btn-danger {
@@ -282,4 +303,67 @@ h5 {
     border: 2px #e2097e;
     padding: 10px 20px;
     cursor: pointer;
+}
+
+.modal-header {
+    align-items: center;
+}
+
+.modal-title {
+    font-family: 'Hug';
+    margin: 15px;
+    font-size: 13px;
+    margin-left: 20px;
+    color: #f8770f;
+    text-align: center;
+}
+
+label {
+    margin: 2px;
+    display: inline-block;
+    font-family: 'gro';
+    font-size: 15px;
+
+}
+
+/* Estilo para etiquetas con contenido del 1A al 5F (color rosado) */
+label[for^="1"],
+label[for^="2"],
+label[for^="3"],
+label[for^="4"],
+label[for^="5"] {
+    color: #28a4e6;
+}
+
+/* Estilo para etiquetas con contenido del 6A al 10F (color morado) */
+label[for^="6"],
+label[for^="7"],
+label[for^="8"],
+label[for^="9"],
+label[for^="10"] {
+    color: #96bb0d;
+}
+
+/* Estilo para la leyenda de colores */
+.legend {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Estilo para cada elemento de la leyenda */
+.legend li {
+    margin-bottom: 10px;
+}
+
+/* Estilo para los cuadros de colores */
+.legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    /* Borde alrededor de los cuadros de colores (opcional) */
 }
