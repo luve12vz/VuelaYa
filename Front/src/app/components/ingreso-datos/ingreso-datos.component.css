@@ -32,6 +32,7 @@
 
 body {
     margin: 30px;
+    margin-left: 450px;
     font-family: 'Asap';
     border: 2px #0073ff;
     background-color: #c8cbbc7e;
@@ -40,17 +41,21 @@ body {
     padding: 5px;
     border-bottom: 1px solid #0073ff;
     cursor: pointer;
-    width: 30%;
+    width: 40%;
 
 }
 
 h2 {
     color: #f8770f;
-    font-size: 17px;
+    font-size: 20px;
     font-family: 'Hug';
     margin: 5px;
 }
 
+.center {
+    text-align: center;
+    color: gray;
+}
 
 /* Estilo para el formulario */
 form {

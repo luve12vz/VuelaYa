@@ -9,14 +9,15 @@ body {
     padding: 5px;
     border-bottom: 1px solid #0073ff;
     cursor: pointer;
-    width: 30%;
+    width: 70%;
+    margin-left: 200px;
 }
 
 
 h3 {
-    font-family: 'gro';
+    font-family: 'Hug';
     margin: 15px;
-    font-size: 25px;
+    font-size: 13px;
     text-align: left;
     color: #96bb0d;
 }
@@ -59,4 +60,21 @@ h4 {
 .button-plus:hover {
     background-color: #e9ecef;
     color: #0073ff;
+}
+
+/* Define un contenedor flex para los elementos que deseas alinear horizontalmente */
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea los elementos a la derecha */
+}
+
+/* Estilo para cada uno de los div internos */
+.flex-container>div {
+    margin-left: 10px;
+    /* Espacio entre los elementos */
+}
+.rigth{
+    margin-left: 50px;
+    margin-right: 100px;
 }

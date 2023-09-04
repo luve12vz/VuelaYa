@@ -135,11 +135,13 @@ ol {
     }
 
     .active {
-        background-color: green; /* Estilo activado */
+        background-color: green;
+        /* Estilo activado */
     }
-      
+
     .inactive {
-        background-color: red; /* Estilo desactivado */
+        background-color: red;
+        /* Estilo desactivado */
     }
 
     label {
@@ -252,4 +254,55 @@ ol {
 .rubberBand {
     -webkit-animation-name: rubberBand;
     animation-name: rubberBand;
+}
+
+h5 {
+    font-family: 'Hug';
+    margin: 15px;
+    font-size: 13px;
+    text-align: center;
+    color: #f8770f;
+}
+
+.btn-primary {
+    font-family: 'Asap';
+    border-radius: 20px;
+    background-color: #fed809;
+    color: white;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    font-family: 'Asap';
+    border-radius: 20px;
+    background-color: #e2097e;
+    color: white;
+    border: 3px #be8fa8;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-success {
+    font-family: 'Asap';
+    border-radius: 20px;
+    background-color: white;
+    color: #e2097e;
+    border: 2px #e2097e;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.modal-header {
+align-items: center;
+}
+
+h4.modal-title {
+    font-family: 'Hug';
+    margin: 15px;
+    font-size: 13px;
+    margin-left: 20px;
+    color: #f8770f;
+    text-align: center;
 }

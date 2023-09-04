@@ -1,55 +1,62 @@
 <body>
-    <h2>Resumen de los vuelos seleccionados </h2>
-    <h3>Vuelo Ida<img src="../assets/imagenes/avion.png" width="80px" height="90px" alt="avion1"></h3>
+    <h3>Resumen de los vuelos seleccionados <img src="../assets/imagenes/re.png" width="60px" height="70px"
+            alt="compra"></h3>
+    <h4>Vuelo Ida<img src="../assets/imagenes/avion.png" width="80px" height="90px" alt="avion1"></h4>
     <ul>
         <li>
-            <h2> Origen:{{this.rutasI.origen}}
+            <h2> Origen:  {{this.rutasI.origen}}
             </h2>
         </li>
         <li>
-            <h2>Destino:{{this.rutasI.destino}}
+            <h2>Destino:  {{this.rutasI.destino}}
             </h2>
         </li>
         <li>
-            <h2>Código del vuelo:{{this.vueloI.numeroVuelo}}
+            <h2>Código del vuelo:  {{this.vueloI.numeroVuelo}}
             </h2>
         </li>
         <li>
-            <h2>Hora de salida:{{this.vueloI.horaSalida}}:00
+            <h2>Hora de salida:  {{this.vueloI.horaSalida}}:  00
             </h2>
         </li>
         <li>
-            <h2>Hora de llegada:{{this.vueloI.horaLlegada}}:00
+            <h2>Hora de llegada:  {{this.vueloI.horaLlegada}}:  00
             </h2>
         </li>
         <li>
-            <h2>Precio:${{this.vueloI.precio}}</h2>
-        </li>
-        <li>
-            <h2>-----Número de Pasajeros: {{this.pasajeros}}</h2>
+            <h2>Precio:  ${{this.vueloI.precio}}</h2>
         </li>
     </ul>
 
-
-
-
-
-
-
-    <br>
-
-    <br>
-    <h3>Vuelo Regreso <img src="../assets/imagenes/avion.png" width="80px" height="90px" alt="avion2"></h3>
-    Origen:{{this.rutasR.origen}}
-    Destino:{{this.rutasR.destino}}
-    Código del vuelo:{{this.vueloR.numeroVuelo}}
-    Hora de salida:{{this.vueloR.horaSalida}}:00
-    Hora de llegada:{{this.vueloR.horaLlegada}}:00
-    Precio:${{this.vueloR.precio}}
+    <h5>Vuelo Regreso <img src="../assets/imagenes/avion2.png" width="80px" height="90px" alt="avion2"></h5>
+    <ul>
+        <li>
+            <h2> Origen:  {{this.rutasR.origen}}
+            </h2>
+        </li>
+        <li>
+            <h2>Destino:  {{this.rutasR.destino}}
+            </h2>
+        </li>
+        <li>
+            <h2>Código del vuelo:  {{this.vueloR.numeroVuelo}}
+            </h2>
+        </li>
+        <li>
+            <h2>Hora de salida:  {{this.vueloR.horaSalida}}:  00
+            </h2>
+        </li>
+        <li>
+            <h2>Hora de llegada:  {{this.vueloR.horaLlegada}}:  00
+            </h2>
+        </li>
+        <li>
+            <h2>Precio:  ${{this.vueloR.precio}}</h2>
+        </li>
+    </ul>
 
     <button class="boton" [routerLink]="['/equipaje-extra']"
-        [queryParams]="{idVR: idVR, idVI: idVI, IV: esIV, p: pasajeros}">Siguiente página</button>
+        [queryParams]="{idVR:   idVR, idVI:   idVI, IV:   esIV, p:   pasajeros}">Siguiente página</button>
     <div class="clearfix"></div>
 </body>
-
 <app-footer></app-footer>

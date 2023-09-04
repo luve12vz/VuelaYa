@@ -1,13 +1,17 @@
-<h5>Seleccion de asientos Ida</h5>
+<h5>Selección de asientos Ida <img src="../assets/imagenes/asi1.png" width="70px" height="60px">
+  <img src="../assets/imagenes/avion.png" width="90px" height="60px">
+</h5>
 <hr />
 <!-- Se desactiva ya que escogio la forma aleatoria -->
-<button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup()" [disabled] = "isRandomActive">Show Data
+<button style="margin: 20px;margin-left:60px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup()"
+  [disabled]="isRandomActive">Ver asientos
 </button>
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Asientos Ida</h4>
+        <h4 class="modal-title">Asientos Ida<img src="../assets/imagenes/asi1.png" width="70px" height="60px">
+          <img src="../assets/imagenes/avion.png" width="90px" height="60px"></h4>
       </div>
       <div class="modal-body">
         <div class="plane">
@@ -16,7 +20,7 @@
             <br>
             <br>
             <br>
-            <h2>Disposicion de asientos del avion</h2>
+            <h2>Disposición de asientos del avión</h2>
           </div>
           <div class="exit exit--front fuselage">
 
@@ -305,7 +309,8 @@
             <li *ngFor="let row of rows" class="row row--{{ row.rowNumber }}">
               <ol class="seats" type="A">
                 <li *ngFor="let seat of row.seats" class="seat">
-                  <input type="checkbox" [id]="seat.id" [name]="seat.id" (change)="handleCheckboxChange($event)" [disabled]="selected >= maxSelectedCheckboxes && !seat.selected || disabledCheckboxes.includes(seat.id)"/>
+                  <input type="checkbox" [id]="seat.id" [name]="seat.id" (change)="handleCheckboxChange($event)"
+                    [disabled]="selected >= maxSelectedCheckboxes && !seat.selected || disabledCheckboxes.includes(seat.id)" />
                   <label [for]="seat.id">{{ seat.id }}</label>
                 </li>
               </ol>
@@ -317,15 +322,16 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="closePopup()" >
-          Aceptar selecciones
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Aceptar Selecciónes
         </button>
-        
+
       </div>
     </div>
   </div>
 </div>
-<!-- Se desactiva el button de seleccionar vuelo -->
-<button type="button" (click)="toggleRandom()" [ngClass]="{'btn btn-success': isRandomActive, 'btn btn-danger': !isRandomActive}">
-  Seleccion Aleatoria
+<!-- Se desactiva el button de Selecciónar vuelo -->
+<button type="button" (click)="toggleRandom()"
+  [ngClass]="{'btn btn-success': isRandomActive, 'btn btn-danger': !isRandomActive}">
+  Selección Aleatoria
 </button>

@@ -1,0 +1,68 @@
+body {
+    color: #96bb0d;
+    margin: 30px;
+    margin-left: 350px;
+    font-family: 'Asap';
+    border: 2px #6a8509;
+    background-color: #c8cbbc7e;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 5px;
+    border-bottom: 1px solid #96bb0d;
+    cursor: pointer;
+    width: 50%;
+}
+
+h2 {
+    font-size: 17px;
+    font-family: 'Asap';
+    margin: 5px;
+    color: #0073ff;
+}
+
+h3 {
+    font-family: 'Hug';
+    color: #96bb0d;
+    margin: 15px;
+    text-align: center;
+    font-size: 30px;
+}
+
+h4 {
+    color: #fed809;
+    font-family: 'Hug';
+    margin: 5px;
+    font-size: 20px;
+}
+
+h5 {
+    color: #f8770f;
+    font-family: 'Hug';
+    margin: 5px;
+    text-align: right;
+    font-size: 20px;
+}
+
+ul {
+    font-family: 'Asap';
+    padding: 5px;
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+li {
+    font-family: 'Asap';
+    margin-bottom: 10px;
+}
+
+.image-container {
+    margin-left: 10px;
+    margin-right: 20px;
+    text-align: right;
+    /* Ajusta el margen según tu preferencia */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: -1000px;
+}

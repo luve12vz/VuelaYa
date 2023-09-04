@@ -1,41 +1,44 @@
 <body>
-<div class="container mt-5">
-  <h2>Formulario de Registro</h2>
-  <div *ngFor="let repeticiones of pasajeros">
-    <div *ngFor="let _ of getRange(repeticiones)">
-      <form>
-        <div class="form-group">
-          <label for="nombre">Nombre:</label>
-          <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre">
-        </div>
-        <div class="form-group">
-          <label for="apellido">Apellido:</label>
-          <input type="text" class="form-control" id="apellido" [(ngModel)]="apellido" name="apellido">
-        </div>
-        <div *ngIf="mostrarFechaNacimiento">
+  <div class="container mt-5">
+    <h2>Formulario de Registro</h2>
+    <div *ngFor="let repeticiones of pasajeros">
+      <div *ngFor="let _ of getRange(repeticiones)">
+        <form>
           <div class="form-group">
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="fechaNacimiento"
-              name="fechaNacimiento">
+            <label class="center">_________________________<img src="../assets/imagenes/r1.png" width="40px" height="50px"
+                alt="registro"></label>
+            <br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre">
           </div>
-        </div>
-      </form>
+          <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" [(ngModel)]="apellido" name="apellido">
+          </div>
+          <div *ngIf="mostrarFechaNacimiento">
+            <div class="form-group">
+              <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+              <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="fechaNacimiento"
+                name="fechaNacimiento">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+
+
+    <div [hidden]="isButtonVisible">
+      <button class="boton-rosado" [routerLink]="['/resumen']"
+        [queryParams]="{idVI: idVI, IV: esIV, p: pasajerosS}">Siguiente pagina</button>
+    </div>
+    <div [hidden]="isButtonVisible2" *ngIf="esIV === 'I'">
+      <button class="boton-rosado" [routerLink]="null">Siguiente pagina</button>
+    </div>
+    <div [hidden]="isButtonVisible2" *ngIf="esIV === 'IV'">
+      <button class="boton-rosado" [routerLink]="['/resumen-de-vuelo-ida-vuelta']"
+        [queryParams]="{idVR: idVR, idVI: idVI, IV: esIV, p: pasajerosS}">Siguiente pagina</button>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Registrarse</button>
-
-
-  <div [hidden]="isButtonVisible">
-    <button class="boton-rosado" [routerLink]="['/resumen']"
-      [queryParams]="{idVI: idVI, IV: esIV, p: pasajerosS}">Siguiente pagina</button>
-  </div>
-  <div [hidden]="isButtonVisible2" *ngIf="esIV === 'I'">
-    <button class="boton-rosado" [routerLink]="null">Siguiente pagina</button>
-  </div>
-  <div [hidden]="isButtonVisible2" *ngIf="esIV === 'IV'">
-    <button class="boton-rosado" [routerLink]="['/resumen-de-vuelo-ida-vuelta']"
-      [queryParams]="{idVR: idVR, idVI: idVI, IV: esIV, p: pasajerosS}">Siguiente pagina</button>
-  </div>
-</div>
 </body>
 <app-footer></app-footer>
