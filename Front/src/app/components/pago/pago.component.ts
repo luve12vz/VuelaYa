@@ -25,7 +25,7 @@ export class PagoComponent implements OnInit {
   public showCancel: boolean = false;
   public showError: boolean = false;
   public params: any;
-
+  public pago = 0; 
   public total = 0;
   public totalida = 0;
   public totalregreso = 0;
@@ -148,21 +148,24 @@ export class PagoComponent implements OnInit {
     return this.descuento
   }
   totalpago() {
+   
+    this.total = this.CalculoPagoAsientos() + this.caluloMaletas() - this.calculoDescuento();
+    console.log("Total a pagar no se que pasa:", this.total);
     return this.CalculoPagoAsientos() + this.caluloMaletas() - this.calculoDescuento();
   }
   
 
   ngOnInit(): void {
-  //  console.log("Total a pagar:", this.totalpago());
+   
    // this.initConfig(this.totalpago().toString());
 
     // this.totalpago();
-    // this.initConfig(this.totalpago.toString());
-    this.initConfig('100');
-   ;
+     //this.initConfig('305');
+    
+   
     this._route.queryParams.subscribe(
       params => {
-        
+        console.log("Total a pagar no se que pasa 1:", this.total);
         this.params = params;
         this.esIV = this.params.IV;
         // Esto solo se pasa como un string -> no array
@@ -186,11 +189,18 @@ export class PagoComponent implements OnInit {
           this.getVueloByIdI(this.idVI);
           this.getVueloByIdR(this.idVR);
         }
-
+        this.total = this.totalpago();
+        console.log("Total a pagar no se que pasa:", this.total.toString());
+        this.initConfig();
       }
+      
+      
     )
+    //this.initConfig('100');
+   
   }
-  private initConfig(price: string): void {
+  private initConfig(): void {
+    console.log("Total a pagar no se que pasa:", this.total);
     this.payPalConfig = {
       currency: 'USD',
       clientId: 'AYs09Ms70cAT8PoLF4QTxWn9UZPN2rYiJfcpbHQhUjoPy_sD2HWLaOFJoxYD7UYZyDg9Z_HcweSlbaR3',
@@ -201,11 +211,11 @@ export class PagoComponent implements OnInit {
             {
               amount: {
                 currency_code: 'USD',
-                value: price,
+                value: this.total.toString(),
                 breakdown: {
                   item_total: {
                     currency_code: 'USD',
-                    value: price,
+                    value: this.total.toString(),
                   },
                 },
               }
@@ -237,6 +247,7 @@ export class PagoComponent implements OnInit {
           );
         });
       },
+      
       onClientAuthorization: (data: any) => {
         console.log(
           'onClientAuthorization - you should probably inform your server about completed transaction at this point',
@@ -272,6 +283,7 @@ export class PagoComponent implements OnInit {
     };
   }
   private getCustomerInfo() {
+    
     return {
       name: this.customerName,
       email: this.customerEmail,
@@ -287,6 +299,7 @@ export class PagoComponent implements OnInit {
   }
 
   private resetStatus(): void {
+    
     this.total = 0;
     this.showError = false;
     this.showSuccess = false;
