@@ -178,7 +178,7 @@ var controller = {
     postEnviarCorreo: async function (req, res) {
         try {
             console.log('Controlador postEnviarCorreo activado');
-            const { name, cedula, email, address } = req.body;
+            const { name, cedula, email, address, boletos, impuestos, total } = req.body;
             console.log('Datos recibidos:', { name, cedula, email, address });
             // Configura el transporte de correo
             let transporter = nodemailer.createTransport({
@@ -189,17 +189,23 @@ var controller = {
                 },
                 secure: false, // upgrade later with STARTTLS
                 auth: {
-                    user: "corre del emisor",
-                    pass: "xxxxxx",
+                    user: "samira.2001@hotmail.com",
+                    pass: ""
                 }
             });
 
             // Configura las opciones de correo
             let mailOptions = {
-                from: 'VuelaYa correoEmisor',
+                from: 'VuelaYa samira.2001@hotmail.com',
                 to: email,
                 subject: 'Resumen de Compra',
-                text: `Hola ${name}, gracias por tu compra. Tu cédula es ${cedula} y tu dirección es ${address}. Aquí está tu resumen...`
+                text: `Hola ${name} con identificación ${cedula}, gracias por tu compra. Aquí está tu resumen: dirección ${address}, precio por boletos ${boletos}. El total de tu compra es ${total}`,
+                html: `<b>Hola ${name} con identificación ${cedula}</b>,<br>¡Gracias por tu compra!.
+                <br>Aquí está tu resumen:<br>
+                Dirección: ${address}.<br>
+                Precio por boletos: ${boletos}.<br>
+                Impuestos, tasas y recargos: ${impuestos}.<br>
+                El total de tu compra es: ${total}`
             };
 
             // Envía el correo

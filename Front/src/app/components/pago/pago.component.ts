@@ -12,7 +12,7 @@ import { Vuelo } from 'src/app/models/vuelo';
   templateUrl: './pago.component.html',
   styleUrls: ['./pago.component.css']
 })
-export class PagoComponent implements OnInit{
+export class PagoComponent implements OnInit {
 
   public payPalConfig?: IPayPalConfig;
 
@@ -28,10 +28,10 @@ export class PagoComponent implements OnInit{
 
   public total = 0;
   public totalida = 0;
-  public totalregreso=0;
-  public asientosTotales: any[] = []; 
-  public valormaletas=0;
-  public descuento=0;
+  public totalregreso = 0;
+  public asientosTotales: any[] = [];
+  public valormaletas = 0;
+  public descuento = 0;
   @ViewChild('priceElem', { static: false }) priceElem?: ElementRef;
   esIV: any;
   pasajeros: any;
@@ -46,55 +46,25 @@ export class PagoComponent implements OnInit{
   constructor(
     private _route: ActivatedRoute,
     private vueloService: VueloService) {
-    this.vueloI = new Vuelo("","",0,0,0,0,0,"");
-    this.vueloR = new Vuelo("","",0,0,0,0,0,"");
+    this.vueloI = new Vuelo("", "", 0, 0, 0, 0, 0, "");
+    this.vueloR = new Vuelo("", "", 0, 0, 0, 0, 0, "");
   }
 
-  ngOnInit(): void {
-    this.initConfig('100');
-    this._route.queryParams.subscribe(
-      params=>{
-        this.params = params;
-        this.esIV = this.params.IV;
-        // Esto solo se pasa como un string -> no array
-        this.pasajeros = this.params.p;
-        this.em = this.params.em;
-        this.e23 = this.params.e23;
-        // Transformar un JSON String a un array:
-        // this.pasajeros = JSON.parse(this.params.p);
-        if(this.esIV == "I"){
-          this.idVI = this.params.idVI;
-          this.asientosI = this.params.aI;
-          this.getVueloByIdI(this.idVI);
-          // Transformar un JSON String a un array:
-          // this.asientosI = JSON.parse(this.asientosI);
-        }
-        else{
-          this.idVI = this.params.idVI;
-          this.idVR = this.params.idVR;
-          this.asientosI = this.params.aI;
-          this.asientosR = this.params.aR;
-          this.getVueloByIdI(this.idVI);
-          this.getVueloByIdR(this.idVR);
-        }
-      }
-    )
-  }
 
-  getVueloByIdI(id:String){
+  getVueloByIdI(id: String) {
     this.vueloService.getVueloId(id).subscribe(
-      response=>{
-        if(response.vuelo){
+      response => {
+        if (response.vuelo) {
           this.vueloI = response.vuelo;
         }
       }
     )
   }
 
-  getVueloByIdR(id:String){
+  getVueloByIdR(id: String) {
     this.vueloService.getVueloId(id).subscribe(
-      response=>{
-        if(response.vuelo){
+      response => {
+        if (response.vuelo) {
           this.vueloR = response.vuelo;
         }
       }
@@ -119,26 +89,26 @@ export class PagoComponent implements OnInit{
     const asientosOcupados = ',' + asientosTotales.join(',') + ',';
 
     return asientosOcupados;
-}
-  caluloMaletas(){
-    const e23 = parseInt(this.e23);
-    const em =parseInt(this.em);
-    return this.valormaletas=(e23+em)*65;
   }
-  CalculoPagoAsientos(){
+  caluloMaletas() {
+    const e23 = parseInt(this.e23);
+    const em = parseInt(this.em);
+    return this.valormaletas = (e23 + em) * 65;
+  }
+  CalculoPagoAsientos() {
     this.pasajeros = JSON.parse(this.params.p);
     const pasajerosNumero = parseInt(this.pasajeros[0]);
     const pasajerosNumero1 = parseInt(this.pasajeros[1]);
     const pasajerosNumero2 = parseInt(this.pasajeros[2]);
     const pasajerosNumero3 = parseInt(this.pasajeros[3]);
 
-    var totalpasajeros=this.pasajeros[0]+this.pasajeros[1]+this.pasajeros[2]+this.pasajeros[3];
-   
-    this.totalida=this.vueloI.precio*(totalpasajeros);
-    this.totalregreso=this.vueloR.precio*(totalpasajeros);
-    return this.totalregreso+this.totalida; 
+    var totalpasajeros = this.pasajeros[0] + this.pasajeros[1] + this.pasajeros[2] + this.pasajeros[3];
+
+    this.totalida = this.vueloI.precio * (totalpasajeros);
+    this.totalregreso = this.vueloR.precio * (totalpasajeros);
+    return this.totalregreso + this.totalida;
   }
-  calculoValoradd(){
+  calculoValoradd() {
     if (this.esIV === "I") {
       this.idVI = this.params.idVI;
       this.asientosI = JSON.parse(this.params.aI); // Convierte a un arreglo
@@ -148,41 +118,65 @@ export class PagoComponent implements OnInit{
       this.asientosI = JSON.parse(this.params.aI); // Convierte a un arreglo
       this.asientosR = JSON.parse(this.params.aR); // Convierte a un arreglo
     }
-    
+
     return this.asientosI[2]
   }
-  calculoDescuento(){
+  calculoDescuento() {
     this.pasajeros = JSON.parse(this.params.p);
     const pasajerosNumero = parseInt(this.pasajeros[0]);
     const pasajerosNumero3 = parseInt(this.pasajeros[3]);
-    if(pasajerosNumero>0){
-      this.descuento=this.descuento+((this.vueloI.precio+this.vueloR.precio)/2);
-    }if(pasajerosNumero3>0){
-      this.descuento=this.descuento+this.vueloI.precio+this.vueloR.precio;
-    }else{
-      this.descuento=0;
+    if (pasajerosNumero > 0) {
+      this.descuento = this.descuento + ((this.vueloI.precio + this.vueloR.precio) / 2);
+    } if (pasajerosNumero3 > 0) {
+      this.descuento = this.descuento + this.vueloI.precio + this.vueloR.precio;
+    } else {
+      this.descuento = 0;
     }
     return this.descuento
   }
-  totalpago(){
-    return this.CalculoPagoAsientos()+this.caluloMaletas()-this.calculoDescuento();
+  totalpago() {
+    return this.CalculoPagoAsientos() + this.caluloMaletas() - this.calculoDescuento();
   }
- /* updateTotal() {
-    this.cart.forEach((cartItem) => {
-      this.items.push({
-        name: cartItem.name,
-        quantity: cartItem.quantity,
-        category: 'DIGITAL_GOODS',
-        unit_amount: {
-          currency_code: 'USD',
-          value: cartItem.price,
-        },
-      });
-      this.total += parseFloat(cartItem.price) * cartItem.quantity;
-    });
-    this.initConfig(this.total + '');
-  }*/
+  
 
+  ngOnInit(): void {
+  //  console.log("Total a pagar:", this.totalpago());
+   // this.initConfig(this.totalpago().toString());
+
+    // this.totalpago();
+    // this.initConfig(this.totalpago.toString());
+    this.initConfig('100');
+   ;
+    this._route.queryParams.subscribe(
+      params => {
+        
+        this.params = params;
+        this.esIV = this.params.IV;
+        // Esto solo se pasa como un string -> no array
+        this.pasajeros = this.params.p;
+        this.em = this.params.em;
+        this.e23 = this.params.e23;
+        // Transformar un JSON String a un array:
+        // this.pasajeros = JSON.parse(this.params.p);
+        if (this.esIV == "I") {
+          this.idVI = this.params.idVI;
+          this.asientosI = this.params.aI;
+          this.getVueloByIdI(this.idVI);
+          // Transformar un JSON String a un array:
+          // this.asientosI = JSON.parse(this.asientosI);
+        }
+        else {
+          this.idVI = this.params.idVI;
+          this.idVR = this.params.idVR;
+          this.asientosI = this.params.aI;
+          this.asientosR = this.params.aR;
+          this.getVueloByIdI(this.idVI);
+          this.getVueloByIdR(this.idVR);
+        }
+
+      }
+    )
+  }
   private initConfig(price: string): void {
     this.payPalConfig = {
       currency: 'USD',
@@ -269,7 +263,11 @@ export class PagoComponent implements OnInit{
       name: this.customerName,
       email: this.customerEmail,
       address: this.customerAddress,
-      cedula: this.customerCedula
+      cedula: this.customerCedula,
+      boletos: this.CalculoPagoAsientos(),
+      total: this.totalpago(),
+      impuestos: this.caluloMaletas()
+
     };
   }
 
