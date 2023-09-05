@@ -138,7 +138,7 @@ export class PagoComponent implements OnInit{
     this.totalregreso=this.vueloR.precio*(totalpasajeros);
     return this.totalregreso+this.totalida; 
   }
-  calculoValoradd(){
+  calculoValoraddI(){
     if (this.esIV === "I") {
       this.idVI = this.params.idVI;
       this.asientosI = JSON.parse(this.params.aI); // Convierte a un arreglo
@@ -149,7 +149,20 @@ export class PagoComponent implements OnInit{
       this.asientosR = JSON.parse(this.params.aR); // Convierte a un arreglo
     }
     
-    return this.asientosI[2]
+    return this.asientosI
+  }
+  calculoValoraddR(){
+    if (this.esIV === "I") {
+      this.idVI = this.params.idVI;
+      this.asientosI = JSON.parse(this.params.aI); // Convierte a un arreglo
+    } else {
+      this.idVI = this.params.idVI;
+      this.idVR = this.params.idVR;
+      this.asientosI = JSON.parse(this.params.aI); // Convierte a un arreglo
+      this.asientosR = JSON.parse(this.params.aR); // Convierte a un arreglo
+    }
+    
+    return this.asientosR
   }
   calculoDescuento(){
     this.pasajeros = JSON.parse(this.params.p);
