@@ -8,14 +8,17 @@
             <div class="col-sm-6">
                 <div class="ResumenCompra">
                     <h1>Resumen de compra</h1>
-                    Precio total de los boletos: {{CalculoPagoAsientos()}}
+                    Precio total de los boletos: ${{CalculoPagoAsientos()}} USD
                     <br>
-                    Impuestos, tasas y recargos: {{caluloMaletas()}}
+                    Impuestos, tasas y recargos: ${{caluloMaletas()}} USD
                     <br>
-                    Descuentos: {{calculoDescuento()}}
+                    <hr>
+                    Total: ${{totalpago()}} USD
                     <br>
-                    Total:{{totalpago()}}
                     <br>
+                    Asientos Seleccionados Ida:{{calculoValoraddI()}}
+                    <br>
+                    Asientos Selecccionados Regreso:{{calculoValoraddR()}}
                     <br>
                     <img src="../assets/imagenes/c1.png" style="text-align: center;" width="150px" height="150px" alt="compra">
                 </div>
