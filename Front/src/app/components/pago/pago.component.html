@@ -1,6 +1,7 @@
 <body>
     <div class="container">
         <div class="clearfix"></div>
+        
         <h2>Proceso de pago <img src="../assets/imagenes/pa.png" width="60px" height="70px"
             alt="compra"></h2>
         <br />
@@ -43,6 +44,23 @@
                 </p>
             </div>
         </div>
+    </div >
+    <div class="Resumen de compra">
+        <h1>Resumen de compra</h1>
+         Precio  total de los boletos: {{CalculoPagoAsientos()}}
+         <br>
+         Impuestos, tasas y recargos: {{caluloMaletas()}}
+         <br>
+         Descuentos: {{calculoDescuento()}}
+         <br>
+         Total:{{totalpago()}}
+         <div *ngIf="this.esIV == false; else mostrarResumenVuelo">
+            <app-resumen-de-vuelo></app-resumen-de-vuelo>
+           
+          </div>
+          <ng-template #mostrarResumenVuelo>
+            <app-resumendevueloidavuelta></app-resumendevueloidavuelta>
+          </ng-template>
     </div>
 </body>
 <app-footer></app-footer>
