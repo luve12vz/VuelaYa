@@ -279,7 +279,9 @@ export class PagoComponent implements OnInit {
       cedula: this.customerCedula,
       boletos: this.CalculoPagoAsientos(),
       total: this.totalpago(),
-      impuestos: this.caluloMaletas()
+      impuestos: this.caluloMaletas(),
+      ida:  this.calculoValoraddI(),
+      regreso: this.calculoValoraddR()
 
     };
   }

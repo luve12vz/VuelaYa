@@ -178,7 +178,7 @@ var controller = {
     postEnviarCorreo: async function (req, res) {
         try {
             console.log('Controlador postEnviarCorreo activado');
-            const { name, cedula, email, address, boletos, impuestos, total } = req.body;
+            const { name, cedula, email, address, boletos, impuestos, total, ida, regreso } = req.body;
             console.log('Datos recibidos:', { name, cedula, email, address });
             // Configura el transporte de correo
             let transporter = nodemailer.createTransport({
@@ -205,6 +205,8 @@ var controller = {
                 Dirección: ${address}.<br>
                 Precio por boletos: ${boletos}.<br>
                 Impuestos, tasas y recargos: ${impuestos}.<br>
+                Asientos de ida: ${ida}.<br>
+                Asientos de regreso: ${regreso}.<br>
                 El total de tu compra es: ${total}`
             };
 
